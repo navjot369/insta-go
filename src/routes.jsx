@@ -1,10 +1,11 @@
+import Home from "./components/home"
 import Account from "./components/account"
 import Login from "./components/account/login"
 
 const routes = [
     {
         path: "/",
-        element: <div>HEllo there</div>
+        element: <Home />
     },{
         path: "/account",
         element: <Account />,
