@@ -1,4 +1,5 @@
 import Navbar from "./Navbar/Navbar";
+import Hero from "./Hero/Hero";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <div className="container">
       <Navbar theme={theme} setTheme={setTheme} />
+      <Hero theme={theme}/>
     </div>
   );
 }

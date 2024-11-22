@@ -8,7 +8,7 @@
     align-items: center;
     font-size: large;
     color: black;
-    background-color: rgb(43, 180, 68);
+    background-color: white;
     width: 100%;
     height: 70px;
     padding: 15px 10%;
@@ -67,9 +67,5 @@
     background-color: rgba(0, 0, 0, 0.94); 
     color: #fff; 
     animation-duration: 300ms;
-    box-shadow: 10px 6px 5px rgb(146, 199, 21);
+    box-shadow: 10px 6px 5px rgb(0, 0, 0);
 }
-
-body {
-    transition: background-color 0.5s ease, color 0.5s ease;
-  }
