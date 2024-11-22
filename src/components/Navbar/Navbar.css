@@ -1,0 +1,74 @@
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: x-large;
+    color: black;
+    background-color: rgb(43, 180, 68);
+    width: 100%;
+    padding: 15px 10%;
+    box-shadow: 10px 2px 5px black;
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+.logo{
+    margin-left: 60px;
+    cursor: pointer;
+    width: 70px;
+}
+
+.main-navbar{
+    width: 600px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.about:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.contact:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.book:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-sign{
+    cursor: pointer;
+    display: flex;
+    width: 200px;
+    gap: 15px;
+    flex-direction: start;
+    justify-content: space-evenly;
+}
+
+.log:hover{
+    text-decoration: underline;
+}
+
+.sign:hover{
+    text-decoration: underline;
+}
+
+.dark .navbar {
+    background-color: rgba(0, 0, 0, 0.94); 
+    color: #fff; 
+    animation-duration: 300ms;
+    box-shadow: 10px 6px 5px rgb(146, 199, 21);
+}
+
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }

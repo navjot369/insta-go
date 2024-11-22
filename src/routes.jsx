@@ -1,4 +1,4 @@
-import Home from "./components/home"
+import Home from "./components/Home"
 import Account from "./components/account"
 import Login from "./components/account/login"
 
