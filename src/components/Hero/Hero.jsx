@@ -1,7 +1,7 @@
 import React from 'react'
 import './Hero.css'
-import evScooter from '../../../public/images/ather-1.jpg'
-import whiteevScooter from '../../../public/images/whitescooter.webp'
+import evScooter from '../../../public/images/ather-1.png'
+import whiteevScooter from '../../../public/images/whitescooter.png'
 const Hero = ({theme}) => {
   return (
     <div className= 'hero'>

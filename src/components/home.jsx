@@ -1,5 +1,6 @@
 import Navbar from "./Navbar/Navbar";
 import Hero from "./Hero/Hero";
+import About from "./About/About";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
     <div className="container">
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero theme={theme}/>
+      <About theme={theme}/>
     </div>
   );
 }
