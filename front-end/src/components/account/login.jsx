@@ -6,7 +6,6 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
-        console.log(e);
         setFormData({...formData, [e.target.name] : e.target.value});
     }
 
