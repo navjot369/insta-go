@@ -1,6 +1,7 @@
 import Home from "./components/Home"
 import Account from "./components/account"
 import Login from "./components/account/login"
+import Signup from "./components/account/signup/Signup"
 
 const routes = [
     {
@@ -11,8 +12,8 @@ const routes = [
         element: <Account />,
         children: [
             {
-                path: "/account/signin",
-                element: <div>Hello</div>
+                path: "/account/signup",
+                element: <Signup />
             },{
                 path: "/account/login",
                 element: <Login />
