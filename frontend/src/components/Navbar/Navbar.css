@@ -1,0 +1,110 @@
+
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    color: black;
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    padding: 15px 10%;
+    box-shadow: 10px 2px 5px black;
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.logo {
+    margin-left: 60px;
+    cursor: pointer;
+    width: 70px;
+}
+
+.main-navbar {
+    width: 600px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.home:hover, .about:hover, .contact:hover, .book:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-sign {
+    cursor: pointer;
+    display: flex;
+    width: 200px;
+    gap: 15px;
+    justify-content: space-evenly;
+}
+
+.log:hover, .sign:hover {
+    text-decoration: underline;
+}
+
+.dark .navbar {
+    background-color: rgba(0, 0, 0, 0.94);
+    color: #fff;
+    animation-duration: 300ms;
+    box-shadow: 10px 6px 5px rgb(0, 0, 0);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .navbar {
+        font-size: medium;
+        padding: 10px 5%;
+    }
+
+    .main-navbar {
+        width: 500px;
+        justify-content: space-around;
+    }
+
+    .login-sign {
+        width: 150px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .main-navbar {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .login-sign {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .logo {
+        margin: 0 auto 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px;
+    }
+
+    .main-navbar {
+        font-size: small;
+    }
+
+    .login-sign {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+}
