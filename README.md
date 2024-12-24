@@ -1,10 +1,10 @@
-# InstaGO 🚲🌱
+# InstaGO
 
 **InstaGO** is a modern platform designed to offer university students a convenient, eco-friendly, and cost-effective electric bike rental solution. By combining advanced technology with a seamless user experience, InstaGO simplifies short-distance travel while promoting sustainable transportation.
 
 ---
 
-## 🌟 Features
+## Features
 
 ### **User Features**
 - **Secure Registration & Login**: Authenticate via university email.
@@ -20,7 +20,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### **Frontend**
 - **React.js**: Dynamic, responsive Single Page Application (SPA).
@@ -44,7 +44,7 @@
 
 ---
 
-## 📊 System Architecture
+## System Architecture
 
 ### **Core Components**
 1. **Frontend**: SPA powered by React.js.
@@ -60,7 +60,7 @@
 
 ---
 
-## 📋 API Endpoints
+## API Endpoints
 
 ### **User Operations**
 - `POST /register`: User registration.
@@ -78,7 +78,7 @@
 
 ---
 
-## 📂 Database Schema
+## Database Schema
 
 ### **Users**
 | Field       | Type       | Description                |
@@ -106,7 +106,7 @@
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 1. **Frontend**: Deployed on **Vercel** for seamless CI/CD.
 2. **Backend**: Hosted on **AWS EC2** with Nginx or Docker.
@@ -114,7 +114,7 @@
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 - **Multi-Campus Support**: Expand to multiple locations.
 - **GPS Tracking**: Real-time location updates for bikes.
 - **Bike Health Monitoring**: IoT sensors for maintenance alerts.
@@ -123,21 +123,15 @@
 
 ---
 
-## 🤝 Contribution
+## Contribution
 
 Contributions are welcome! Please fork this repository and submit a pull request for any feature or enhancement you'd like to add.
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
-## 📞 Contact
-
-For questions or feedback, reach out to **InstaGO** at: [instago.support@example.com](mailto:instago.support@example.com)
 
 ---
 
