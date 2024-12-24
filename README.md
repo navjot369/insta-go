@@ -106,6 +106,42 @@
 
 ---
 
+### **Setting Up the Project Locally**
+1. Clone the Repository
+```
+git clone https://github.com/navjot369/insta-go
+cd instago
+```
+
+2. Set Up the Backend (Express.js + Node.js)
+Navigate to the backend directory:
+```
+cd backend
+npm install
+```
+Configure Environment Variables ane start the Backend Server:
+```
+npm start
+```
+The backend server will now be running on http://localhost:5000.
+
+3. Set Up the Frontend (React.js)
+
+Navigate to the frontend directory:
+```
+cd frontend
+npm install
+```
+Configure Environment Variables and start the Frontend Development Server:
+```
+npm start
+```
+
+Open your browser and go to http://localhost:3000 to use the InstaGO platform locally.
+You should be able to interact with the bike booking system, check availability, and manage bookings.
+
+
+---
 ## Deployment
 
 1. **Frontend**: Deployed on **Vercel** for seamless CI/CD.
