@@ -135,4 +135,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ---
 
-Let's make university travel sustainable and hassle-free! 🚲✨
+Let's make university travel sustainable and hassle-free!
