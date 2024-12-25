@@ -3,6 +3,7 @@ import Hero from "./Hero/Hero";
 import About from "./About/About";
 import Services from "./Services/Services";
 import { useState, useEffect } from "react";
+import Reviews from "./Reviews/Reviews";
 
 export default function Home() {
   const [theme, setTheme] = useState(
@@ -26,6 +27,7 @@ export default function Home() {
       <Hero theme={theme}/>
       <About theme={theme}/>
       <Services theme={theme}/>
+      <Reviews theme={theme}/>
     </div>
   );
 }
