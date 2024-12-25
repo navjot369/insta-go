@@ -2,9 +2,9 @@ import React from 'react';
 import './Navbar.css';
 import { MdDarkMode } from "react-icons/md";
 import { HiSun } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
-const Navbar = ({theme, setTheme}) => {
-  
+export default function Navbar({ theme, setTheme }) {
   return (
     <div className='navbar'>
      <h1>InstaGO</h1>
@@ -16,8 +16,8 @@ const Navbar = ({theme, setTheme}) => {
       </div>
       
       <div className='login-sign'>
-        <div className='log'>Log in</div>
-        <div className='sign'>sign up</div>
+        <Link className='log' to="/account/login">Log in</Link>
+        <Link className='sign' to="/account/signup">sign up</Link>
       </div>
       <div className='theme'>
         {
@@ -30,5 +30,3 @@ const Navbar = ({theme, setTheme}) => {
     </div>
   )
 }
-
-export default Navbar;

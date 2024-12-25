@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import "./../../styles/account.css";
+import "../../styles/account.css";
 
 export default function Account() {
     return(<div className="outer-cont">
