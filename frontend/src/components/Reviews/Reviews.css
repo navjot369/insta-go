@@ -1,28 +1,34 @@
 * {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .rated {
   padding: 20px;
   height: 450px;
 }
+
 .title {
   text-align: center;
   margin-bottom: 20px;
   font-size: 2em;
 }
+
 .subtitle {
   text-align: center;
   margin-bottom: 40px;
   font-size: 1em;
 }
+
 .reviews {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap; /* Enables wrapping for smaller screens */
+  gap: 20px; /* Adds space between review cards */
 }
+
 .review {
   height: 120px;
   width: 300px;
@@ -32,39 +38,82 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin: 10px;
 }
+
 .rating {
   display: flex;
   margin-bottom: 10px;
 }
 
-
 .review-text {
   margin-bottom: 10px;
 }
+
 .client-name {
   font-weight: bold;
 }
-@media (max-width: 768px) {
 
-  .rated{
-    padding: 100px 50px;
+/* Medium Devices (Tablets and smaller laptops) */
+@media (max-width: 768px) {
+  .rated {
+    padding: 40px 20px;
+    height: auto; /* Adjust height to fit content */
+  }
+
+  .title {
+    font-size: 1.8em;
+  }
+
+  .subtitle {
+    font-size: 0.9em;
   }
 
   .review {
-    margin: 10px 0;
+    width: 90%; /* Reduce width for smaller screens */
+    margin: 10px auto; /* Center reviews horizontally */
   }
 
-  .reviews{
-    gap: 20px;
+  .reviews {
+    justify-content: center;
+    gap: 15px; /* Adjust spacing for smaller screens */
   }
 }
 
-.dark .rated{
-    background-color: black;
-    animation-duration: 300ms;
-    box-shadow: 10px 6px 5px rgb(0, 0, 0);
+/* Small Devices (Phones) */
+@media (max-width: 480px) {
+  .rated {
+    padding: 20px 10px;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .subtitle {
+    font-size: 0.8em;
+  }
+
+  .review {
+    width: 100%; /* Take full width */
+    padding: 15px;
+  }
+
+  .rating {
+    flex-direction: column; /* Stack rating elements vertically */
+    align-items: flex-start;
+  }
+
+  .client-name {
+    font-size: 0.9em;
+  }
 }
 
-.dark .subtitle{
-    color: white;
+/* Dark Theme */
+.dark .rated {
+  background-color: black;
+  animation-duration: 300ms;
+  box-shadow: 10px 6px 5px rgb(0, 0, 0);
+}
+
+.dark .subtitle {
+  color: white;
 }

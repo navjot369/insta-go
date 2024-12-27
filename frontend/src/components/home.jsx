@@ -4,6 +4,7 @@ import About from "./About/About";
 import Services from "./Services/Services";
 import { useState, useEffect } from "react";
 import Reviews from "./Reviews/Reviews";
+import Footer from "./Footer/Footer";
 
 export default function Home() {
   const [theme, setTheme] = useState(
@@ -28,6 +29,7 @@ export default function Home() {
       <About theme={theme}/>
       <Services theme={theme}/>
       <Reviews theme={theme}/>
+      <Footer/>
     </div>
   );
 }

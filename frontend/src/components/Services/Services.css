@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 600px;
+  min-height: 600px;
   background-color: white;
   padding: 20px;
   justify-content: center;
@@ -69,34 +69,52 @@
   background-color: #d1a91b;
 }
 
+/* Medium Devices (Tablets and smaller laptops) */
 @media (max-width: 768px) {
+  .whyus {
+    padding: 50px 20px;
+    margin: auto;
+    min-height: auto; /* Adjusts height for smaller screens */
+  }
 
-  .whyus{
-    padding: 100px 50px;
-    margin: auto;
-  }
-  .dark .whyus{
-    padding: 100px 50px;
-    margin: auto;
-  }
   .cards-container {
     flex-direction: column;
     align-items: center;
   }
+
   .card {
-    width: 100%;
+    width: 90%; /* Reduce card width */
+    margin-bottom: 20px; /* Add spacing between cards */
   }
 }
 
+/* Small Devices (Phones) */
 @media (max-width: 480px) {
   .title {
     font-size: 1.5em;
   }
+
   .card {
     padding: 15px;
+    width: 100%; /* Full width on small screens */
+  }
+
+  .card h2 {
+    font-size: 1.2em;
+  }
+
+  .card p {
+    font-size: 0.9em;
+    line-height: 1.4em;
+  }
+
+  .card button {
+    font-size: 0.9em;
+    padding: 8px 16px;
   }
 }
 
+/* Dark Theme */
 .dark .whyus {
   background-color: black;
   color: #fff;
