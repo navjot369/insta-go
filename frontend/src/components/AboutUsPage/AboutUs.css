@@ -1,65 +1,88 @@
-/* General styling */
 .about-us-container {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 100px;
   font-family: "Arial", sans-serif;
-  color: #333;
+  color: #c9d1d9;
   line-height: 1.6;
-}
+  }
 
 /* Section headings */
-h1, h2 {
+.header-title,
+.mission-title,
+.features-title,
+.how-it-works-title,
+.testimonials-title,
+.contact-title {
   font-family: "Poppins", sans-serif;
   text-align: center;
   margin-bottom: 20px;
+  color: #ffc727; 
 }
 
 /* Header section */
 .header-section {
-  background: linear-gradient(135deg, #ffc727, white);
-  color: black;
+  background: linear-gradient(360deg, #ffc727, white); 
+  color: #0d1117;
   padding: 40px 20px;
   border-radius: 10px;
   text-align: center;
   animation: fadeIn 2s ease-in-out;
 }
 
-.header-section h1 {
+.header-title {
   font-size: 3rem;
 }
 
-.header-section p {
+.header-description {
   font-size: 1.2rem;
 }
 
-
-
-/* Mission, features, and other sections */
-.mission-section, .features-section, .how-it-works-section, .testimonials-section, .contact-section {
+.mission-section,
+.features-section,
+.how-it-works-section,
+.testimonials-section,
+.contact-section {
   margin: 40px 0;
   padding: 20px;
-  background: #f9f9f9;
+  background: #161b22;
   border-radius: 10px;
   animation: slideUp 1.5s ease-in-out;
 }
 
-.mission-section h2, .features-section h2, .how-it-works-section h2, .testimonials-section h2, .contact-section h2 {
+.mission-title,
+.features-title,
+.how-it-works-title,
+.testimonials-title,
+.contact-title {
   color: #ffc727;
 }
 
+.mission-description,
+.features-list,
+.how-it-works-list,
+.testimonial,
+.contact-description {
+  margin: 20px 0;
+}
 
-ul, ol {
+.features-list,
+.how-it-works-list {
   margin-left: 20px;
 }
 
-ul li, ol li {
+.features-item,
+.how-it-works-item {
   margin: 10px 0;
 }
 
-blockquote {
+.features-item-title,
+.how-it-works-step-title {
+  font-weight: bold;
+}
+
+.testimonial {
   background: #fefeea;
-  border-left: 5px solid #ffc727;
+  border-left: 5px solid #ffc727; /* Updated border color */
   margin: 20px auto;
   padding: 20px;
   font-style: italic;
@@ -67,21 +90,39 @@ blockquote {
   animation: fadeIn 2s ease-in-out;
 }
 
-blockquote span {
+.testimonial-author {
   display: block;
   margin-top: 10px;
   font-weight: bold;
-  color: #ffc727;
+  color: #ffc727; /* Updated color */
 }
 
-.contact-section{
-  background: #fefeea;
+.contact-description {
+  font-size: 1rem;
 }
 
-.contact-section a{
-  color: black;
+.contact-email {
+  color: #ffc727; /* Updated color */
+  text-decoration: underline;
 }
 
+.contact-section {
+  /* background: #fefeea; */
+  background: #161b22;
+}
+
+/* Hover effects */
+.mission-section:hover,
+.features-section:hover,
+.how-it-works-section:hover,
+.testimonials-section:hover,
+.contact-section:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -102,35 +143,24 @@ blockquote span {
   }
 }
 
-/* Hover effects */
-.mission-section:hover, .features-section:hover, .how-it-works-section:hover, .testimonials-section:hover, .contact-section:hover {
-  transform: scale(1.02);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
 /* Responsive Design */
 @media (max-width: 992px) {
-  .header-section h1 {
+  .header-title {
     font-size: 2.5rem;
   }
 
-  .header-section p {
+  .header-description {
     font-size: 1rem;
   }
 
-  ul, ol {
+  .features-list,
+  .how-it-works-list {
     margin-left: 15px;
   }
 
-  blockquote {
+  .testimonial {
     padding: 15px;
   }
-}
-
-
-.dark.about-us-container{
-  background-color: black;
 }
 
 @media (max-width: 768px) {
@@ -138,47 +168,57 @@ blockquote span {
     padding: 30px 15px;
   }
 
-  .header-section h1 {
+  .header-title {
     font-size: 2rem;
   }
 
-  .header-section p {
+  .header-description {
     font-size: 0.9rem;
   }
 
-  ul li, ol li {
+  .features-item,
+  .how-it-works-item {
     font-size: 0.9rem;
   }
 
-  blockquote {
+  .testimonial {
     font-size: 0.9rem;
   }
 
-  .mission-section, .features-section, .how-it-works-section, .testimonials-section, .contact-section {
+  .mission-section,
+  .features-section,
+  .how-it-works-section,
+  .testimonials-section,
+  .contact-section {
     padding: 15px;
     margin: 30px 0;
   }
 }
 
 @media (max-width: 576px) {
-  .header-section h1 {
+  .header-title {
     font-size: 1.8rem;
   }
 
-  .header-section p {
+  .header-description {
     font-size: 0.8rem;
   }
 
-  .mission-section, .features-section, .how-it-works-section, .testimonials-section, .contact-section {
+  .mission-section,
+  .features-section,
+  .how-it-works-section,
+  .testimonials-section,
+  .contact-section {
     padding: 10px;
     margin: 20px 0;
   }
 
-  ul li, ol li {
+  .features-item,
+  .how-it-works-item {
     font-size: 0.8rem;
   }
 
-  blockquote {
+  .testimonial {
     font-size: 0.8rem;
     padding: 10px;
   }

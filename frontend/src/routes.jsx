@@ -3,6 +3,7 @@ import Account from "./components/account"
 import Login from "./components/account/login"
 import Signup from "./components/account/signup/Signup"
 import AboutUs from "./components/AboutUsPage/AboutUs"
+import ContactUs from "./components/ContactUs/ContactUs"
 
 const routes = [
     {
@@ -24,6 +25,9 @@ const routes = [
         path: "/About-us",
         element: <AboutUs/>
 
+    },{
+        path: "/Contact-us",
+        element: <ContactUs/>
     }
 ]
 
