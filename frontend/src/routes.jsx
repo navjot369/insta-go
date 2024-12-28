@@ -2,6 +2,7 @@ import Home from "./components/Home"
 import Account from "./components/account"
 import Login from "./components/account/login"
 import Signup from "./components/account/signup/Signup"
+import AboutUs from "./components/AboutUsPage/AboutUs"
 
 const routes = [
     {
@@ -19,7 +20,12 @@ const routes = [
                 element: <Login />
             }
         ]
+    },{
+        path: "/About-us",
+        element: <AboutUs/>
+
     }
 ]
 
 export default routes;
+

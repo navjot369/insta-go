@@ -11,7 +11,7 @@ export default function Navbar({ theme, setTheme }) {
       <div className='main-navbar'>
         <div className='home'>Home</div>
         <div className='book'>Book a ride</div>
-        <div className='about'>About us</div>
+        <Link to="/About-us">About Us</Link>
         <div className='contact'>Contact us</div>
       </div>
       

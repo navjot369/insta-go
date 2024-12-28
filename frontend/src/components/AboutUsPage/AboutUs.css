@@ -1,0 +1,185 @@
+/* General styling */
+.about-us-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Section headings */
+h1, h2 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Header section */
+.header-section {
+  background: linear-gradient(135deg, #ffc727, white);
+  color: black;
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.header-section h1 {
+  font-size: 3rem;
+}
+
+.header-section p {
+  font-size: 1.2rem;
+}
+
+
+
+/* Mission, features, and other sections */
+.mission-section, .features-section, .how-it-works-section, .testimonials-section, .contact-section {
+  margin: 40px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  animation: slideUp 1.5s ease-in-out;
+}
+
+.mission-section h2, .features-section h2, .how-it-works-section h2, .testimonials-section h2, .contact-section h2 {
+  color: #ffc727;
+}
+
+
+ul, ol {
+  margin-left: 20px;
+}
+
+ul li, ol li {
+  margin: 10px 0;
+}
+
+blockquote {
+  background: #fefeea;
+  border-left: 5px solid #ffc727;
+  margin: 20px auto;
+  padding: 20px;
+  font-style: italic;
+  position: relative;
+  animation: fadeIn 2s ease-in-out;
+}
+
+blockquote span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ffc727;
+}
+
+.contact-section{
+  background: #fefeea;
+}
+
+.contact-section a{
+  color: black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover effects */
+.mission-section:hover, .features-section:hover, .how-it-works-section:hover, .testimonials-section:hover, .contact-section:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .header-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-section p {
+    font-size: 1rem;
+  }
+
+  ul, ol {
+    margin-left: 15px;
+  }
+
+  blockquote {
+    padding: 15px;
+  }
+}
+
+
+.dark.about-us-container{
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    padding: 30px 15px;
+  }
+
+  .header-section h1 {
+    font-size: 2rem;
+  }
+
+  .header-section p {
+    font-size: 0.9rem;
+  }
+
+  ul li, ol li {
+    font-size: 0.9rem;
+  }
+
+  blockquote {
+    font-size: 0.9rem;
+  }
+
+  .mission-section, .features-section, .how-it-works-section, .testimonials-section, .contact-section {
+    padding: 15px;
+    margin: 30px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .header-section p {
+    font-size: 0.8rem;
+  }
+
+  .mission-section, .features-section, .how-it-works-section, .testimonials-section, .contact-section {
+    padding: 10px;
+    margin: 20px 0;
+  }
+
+  ul li, ol li {
+    font-size: 0.8rem;
+  }
+
+  blockquote {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
