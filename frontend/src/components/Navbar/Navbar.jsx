@@ -9,7 +9,7 @@ export default function Navbar({ theme, setTheme }) {
     <div className='navbar'>
      <h1>InstaGO</h1>
       <div className='main-navbar'>
-        <div className='home'>Home</div>
+        <Link to="/" className='home'>Home</Link>
         <div className='book'>Book a ride</div>
         <Link className= 'about' to="/About-us">About Us</Link>
         <Link className='contact' to="/Contact-us">Contact us</Link>

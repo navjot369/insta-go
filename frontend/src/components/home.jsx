@@ -1,10 +1,7 @@
 import Navbar from "./Navbar/Navbar";
-import Hero from "./Hero/Hero";
-import About from "./About/About";
-import Services from "./Services/Services";
 import { useState, useEffect } from "react";
-import Reviews from "./Reviews/Reviews";
 import Footer from "./Footer/Footer";
+import { Outlet } from "react-router-dom";
 
 export default function Home() {
   const [theme, setTheme] = useState(
@@ -25,10 +22,11 @@ export default function Home() {
   return (
     <div className="container">
       <Navbar theme={theme} setTheme={setTheme} />
-      <Hero theme={theme}/>
+      {/* <Hero theme={theme}/>
       <About theme={theme}/>
       <Services theme={theme}/>
-      <Reviews theme={theme}/>
+      <Reviews theme={theme}/> */}
+      <Outlet />
       <Footer/>
     </div>
   );

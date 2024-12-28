@@ -19,6 +19,10 @@
   color: #ffc727; 
 }
 
+.dark .header-title {
+  color: black;
+}
+
 /* Header section */
 .header-section {
   background: linear-gradient(360deg, #ffc727, white); 
