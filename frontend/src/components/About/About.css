@@ -8,50 +8,69 @@
 .abc {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     color: black;
     background-color: rgb(245, 243, 240);
-    height: 600px;
-    padding: 200px;
-    align-items: center;
+    min-height: 75vh;
+    padding: 50px;
+    gap: 20px;
     transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
-    flex-wrap: wrap;
 }
 
 .text {
     display: flex;
     flex-direction: column;
-    width: 200px;
-    font-size: larger;
-    gap: 20px;
+    max-width: 400px;
+    font-size: 1.2rem;
+    gap: 15px;
+    line-height: 1.6;
 }
 
 .aboutImg {
     width: 100%;
-    max-width: 540px;
+    max-width: 500px;
     height: auto;
+    border-radius: 8px;
 }
 
 .dark .abc {
-    background-color: rgba(0, 0, 0, 0.929);
+    background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
 }
 
 h1 {
     color: #ffc727;
+    font-size: 2rem;
 }
 
 @media (max-width: 768px) {
     .abc {
-        padding: 100px 50px;
+        padding: 30px;
+        flex-direction: column;
+        text-align: center;
+        min-height: 70vh;
     }
 
     .text {
-        font-size: medium;
+        font-size: 1rem;
         width: 100%;
     }
 
     .aboutImg {
-        width: 100%;
-        max-width: 400px;
+        max-width: 300px;
     }
-} 
+}
+
+@media (max-width: 480px) {
+    .text {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .aboutImg {
+        max-width: 250px;
+    }
+}
