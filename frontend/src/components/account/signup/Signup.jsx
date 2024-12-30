@@ -94,7 +94,3 @@ export default function Signup() {
     </div>
   );
 }
-
-function StepThree(props) {
-  return <div className="step-cont">three</div>;
-}

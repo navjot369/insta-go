@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios"
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -9,8 +10,14 @@ export default function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const res = await axios.post("http://localhost:8080/user/signin", formData,{
+      headers: {
+        'Content-Type' : "application/json"
+      }});
+
+    console.log(res);
   };
 
   return (
