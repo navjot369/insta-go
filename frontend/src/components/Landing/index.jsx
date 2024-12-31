@@ -5,8 +5,8 @@ import Reviews from "./../Reviews/Reviews";
 
 export default function Landing({theme}) {
     return (<>
-      <Hero/>
-      <About/>
-      <Services/>
-      <Reviews/></>);
+      <Hero theme={theme}/>
+      <About theme={theme}/>
+      <Services theme={theme}/>
+      <Reviews theme={theme}/></>);
 };
