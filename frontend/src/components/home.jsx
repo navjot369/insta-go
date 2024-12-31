@@ -1,6 +1,7 @@
 import Navbar from "./Navbar/Navbar";
 import { useState, useEffect } from "react";
 import Footer from "./Footer/Footer";
+import Chatbot from './ChatBot/ChatBot';
 import { Outlet } from "react-router-dom";
 
 export default function Home() {
@@ -22,12 +23,9 @@ export default function Home() {
   return (
     <div className="container">
       <Navbar theme={theme} setTheme={setTheme} />
-      {/* <Hero theme={theme}/>
-      <About theme={theme}/>
-      <Services theme={theme}/>
-      <Reviews theme={theme}/> */}
       <Outlet />
       <Footer/>
+      <Chatbot />
     </div>
   );
 }

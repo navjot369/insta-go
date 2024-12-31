@@ -1,0 +1,91 @@
+[
+  {
+    "question": "Hi",
+    "keywords": ["hi", "hello", "hey", "hiya"],
+    "answers": [
+      "Hello there! How can I assist you today?"
+      
+    ]
+  },
+  {
+    "question": "How are you?",
+    "keywords": ["how are you", "how's it going", "how are things"],
+    "answers": [
+      "I'm doing great, thanks for asking!"
+    ]
+  },
+  {
+    "question": "What is Instago?",
+    "keywords": ["what is instago", "what's instago", "explain instago"],
+    "answers": [
+      "Instago is a university rental system that allows students to rent vehicles and helmets easily!",
+      "Instago is a platform where you can access and rent vehicles from the university."
+    ]
+  },
+  {
+    "question": "How can I rent a vehicle?",
+    "keywords": ["how can i rent a vehicle", "rent vehicle", "how to rent a vehicle", "rent car", "rent bike"],
+    "answers": [
+      "To rent a vehicle, simply log into the Instago website, select a vehicle, and reserve it for your required time slot."
+    ]
+  },
+  {
+    "question": "What vehicles are available?",
+    "keywords": ["available vehicles", "vehicle types", "what vehicles can i rent", "available rentals"],
+    "answers": [
+      "You can rent cars, bikes, and scooters! Check the rental page for availability."
+    ]
+  },
+  {
+    "question": "What happens if I return the vehicle late?",
+    "keywords": ["late return", "late vehicle return", "return vehicle late"],
+    "answers": [
+      "If you're late returning the vehicle, you may incur additional charges based on the time you exceed."
+    ]
+  },
+  {
+    "question": "Can I cancel my rental?",
+    "keywords": ["cancel rental", "can i cancel", "rental cancellation", "cancel booking"],
+    "answers": [
+      "Yes, you can cancel your rental before the vehicle is picked up. Check our cancellation policy for more details."
+    ]
+  },
+  {
+    "question": "How can I rent a vehicle?",
+    "keywords": ["rent", "vehicle"],
+    "answers": [
+      "To rent a vehicle, simply log into the Instago website, select a vehicle, and reserve it for your required time slot."
+    ]
+  },
+  {
+    "question": "What happens if I return the vehicle late?",
+    "keywords": ["return", "late", "vehicle"],
+    "answers": [
+      "If you're late returning the vehicle, you may incur additional charges based on the time you exceed."
+    ]
+  },
+  {
+    "question": "What vehicles are available?",
+    "keywords": ["vehicles", "available"],
+    "answers": [
+      "You can rent cars, bikes, and scooters! Check the rental page for availability."
+    ]
+  },
+  {
+    "question": "Can I cancel my rental?",
+    "keywords": ["cancel", "rental"],
+    "answers": [
+      "Yes, you can cancel your rental before the vehicle is picked up. Check our cancellation policy for more details."
+    ]
+  },
+  {
+    "question": "Can I modify my rental booking?",
+    "keywords": ["modify", "booking"],
+    "answers": [
+      "Yes, you can modify your rental booking. Please refer to our website for further details."
+    ]
+  }
+
+  
+]
+

@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.3",
+    "react-chatbot-kit": "^2.2.2",
     "vite": "^6.0.5"
   }
 }
