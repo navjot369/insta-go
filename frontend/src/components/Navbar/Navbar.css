@@ -80,7 +80,21 @@
     animation-duration: 300ms;
     box-shadow: 10px 6px 5px rgb(0, 0, 0);
 }
-
+.auth-button {
+    color: black;
+    font-size: 20px;
+    background: none;
+    border: none;
+    padding: 4px;
+}
+.dark .auth-button {
+    color: white;
+}
+.auth-button:hover {
+    text-decoration: underline;
+    color: #ffc727;
+    font-weight: bold;
+}
 
 
 

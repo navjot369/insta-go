@@ -17,6 +17,7 @@ export default function SignUpOne({ stepIncrease, handleChange, formData }) {
         value={formData.firstName}
         className="form-input"
         id="firstName"
+        required="true"
       />
       <label className="form-label" htmlFor="lastName">
         Last Name
@@ -34,10 +35,12 @@ export default function SignUpOne({ stepIncrease, handleChange, formData }) {
       </label>
       <input
         name="dob"
+        type="date"
         onChange={handleChange}
         value={formData.dob}
         className="form-input"
         id="dob"
+        required="true"
       />
       <label className="form-label" htmlFor="email">
         E-mail
@@ -48,6 +51,7 @@ export default function SignUpOne({ stepIncrease, handleChange, formData }) {
         value={formData.email}
         className="form-input"
         id="email"
+        required="true"
       />
       <button className="continue-button" type="submit">Next &rarr;</button>
     </form>

@@ -1,0 +1,223 @@
+.book-ride-outer-cont {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dark .book-ride-outer-cont {
+    background-color: black;
+}
+.book-ride-inner-cont {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.img-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: location-updown 2s ease-in-out 0s infinite alternate;
+}
+@keyframes location-updown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@media screen and (max-width: 800px) {
+    .book-ride-inner-cont {
+        grid-template-columns: 1fr;
+    }
+    .img-cont {
+        display: none;
+    }
+}
+
+.location-pin {
+    width: 100%;
+}
+.welcome-text {
+    font-size: 50px;
+}
+
+
+.available-outer-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+.thumb-nail-line {
+    font-size: 20px;
+    padding: 10px 0;
+}
+.already-booked {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.booking-details-cont {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: #1e78ba;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+    gap: 5px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0 0 #97971c;
+}
+.title-booking {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+.label-booking {
+    padding-top: 1px;
+    font-size: 18px;
+}
+.available-inner-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+}
+.available-count {
+    font-size: 28px;
+    padding: 20px 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.book-bike-button {
+    font-size: 20px;
+    background-color: #f6f64f;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    align-content: center;
+    transition-duration: 300ms;
+}
+.book-bike-button:hover {
+    transform: scale(1.1);
+}
+.dark .book-ride-inner-cont {
+    color: white;
+}
+.bike-booking-outer-cont {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+.end-trip-cont p{
+    margin-top: 20px;
+    margin-right: 40px;
+    font-size: 20px;
+}
+.end-trip-cont button {
+    background-color: #97971c;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+}
+.end-trip-cont button:hover {
+    background-color: #d8d86c;
+}
+.bike-booking-inner-cont {
+    border-radius: 30px;
+    background: white;
+    overflow: hidden;
+}
+.dark .bike-booking-inner-cont{
+    background: rgb(55, 54, 54);
+}
+.payment-heading {
+    font-size: 50px;
+    padding: 20px;
+    text-align: center;
+    background-color: darkcyan;
+}
+.dark .payment-heading {
+    background-color: rgb(6, 81, 81);
+}
+.payment-heading p {
+    font-size: 15px;
+    color: white;
+}
+.time-header {
+    margin-top: 5px;
+    color: white;
+    font-size: 30px;
+}
+.payment-detail {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.title-payment {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+.label-payment {
+    font-size: 20px;
+}
+.dark .bike-booking-outer-cont {
+    color: white;
+    background-color: black;
+}
+.qr-image-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qr-image-cont img {
+    border-radius: 7px;
+}
+.button-cont-payment {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 10px;
+    padding: 30px;
+}
+.cancel-button {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+.done-payment-button {
+    background-color: #b1b11b;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+.done-payment-button:hover {
+    background-color: #d8d86c;
+}

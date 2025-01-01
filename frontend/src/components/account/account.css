@@ -6,29 +6,40 @@
 .outer-cont {
     height: 100vh;
     font-size: 40px;
-    background-color: white;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .main-cont {
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #f8f8fb;
     display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(3px);
 } 
+.dark .main-cont {
+    background-color: black;
+}
 .inner-cont {
     margin: 10px 0 100px 0;
     overflow: hidden;
+    transform: scale(1.1) ;
 }
 .heading {
     font-size: 40px;
-    color: white;
+    color: black;
     text-align: center;
+    display: block;
+    text-decoration: none;
+}
+.dark .heading {
+    color: white;
 }
 .heading span {
-    color : #fdfcc2;
+    color : black;
+}
+.dark .heading span{
+    color: #fdfcc2;
 }
 @media screen and (max-width: 1000px) {
     .main-cont {
@@ -38,26 +49,38 @@
 .form-outer-cont {
     max-width: 250px;
     width: 250px;
+    position: relative;
 }
 .form-inner-cont {
+    /* position: absolute; */
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    z-index: 0;
 }
 .form-label {
     font-size: 18px;
+    color: black;
+}
+.dark .form-label {
     color: white;
 }
 .form-input {
     font-size: 18px;
     height: 30px;
     background: none;
-    border: 2px solid white;
+    border: 2px solid black;
     outline: none;
-    color: white;
+    color: black;
     padding: 4px;
     display: block;
     width: 100%;
+}
+.dark .form-input {
+    border: 2px solid white;
+}
+.dark .form-input {
+    color: white;
 }
 .form-input:focus {
     background: rgba(250, 250, 250, 0.2);
@@ -89,9 +112,9 @@
 }
 .continue-button {
     width: 100%;
-    background-color: #fdfcc2;
-    color: #3d5a26;
-    border: 2px solid #fdfcc2;
+    background-color: #3d5a26;
+    color: #fdfcc2;
+    border: 2px solid #3d5a26;
     outline: none;
     border-radius: 2px;
     padding: 4px;
@@ -102,7 +125,6 @@
 .continue-button:hover:not(:disabled), .back-button:hover {
     color: #fdfcc2;
     background-color: #3d5a26;
-    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.1);
 }
 .continue-button:disabled {
     opacity: 0.9;
@@ -115,9 +137,9 @@
 }
 .back-button {
     width: fit-content;
-    background-color: #fdfcc2;
-    color: #3d5a26;
-    border: 0px solid #fdfcc2;
+    background-color: #3d5a26;
+    color: #fdfcc2;
+    border: 0px solid #3d5a26;
     outline: none;
     border-radius: 2px;
     padding: 4px;
@@ -128,14 +150,14 @@
 .forget-pass-cont {
     margin: 5px 0;
     font-size: 15px;
-    color: #00daff;
+    color: #066677;
     text-align: right;
 }
 .other-opt-cont {
     width: 100%;
     text-align: center;
     font-size: 15px;
-    color: #fdfcc2;
+    color: #3d5a26;
     border: 2px solid var(--primaryColor);
     margin: 5px 0;
     padding: 10px 5px;
@@ -145,7 +167,7 @@
     margin: 0;
 }
 .other-link {
-    color: #00daff;
+    color: #066677;
     text-decoration: none;
 }
 .step-outer-cont {
@@ -207,6 +229,9 @@
 .show-password-cont {
     margin: 5px 0;
     font-size: 15px;
+    color: black;
+}
+.dark .show-password-cont{
     color: white;
 }
 .show-password-cont label {
@@ -235,3 +260,38 @@
     content: "\2714   ";
     color:rgb(98, 212, 98)
 }
+.error-message {
+    font-size: 15px;
+    color: red;
+    text-align: center;
+    padding: 5px;
+}
+.loader-cont {
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.loader {
+    border: 6px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 6px solid #3d5a26;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

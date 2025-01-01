@@ -28,6 +28,7 @@ export default function SignUpTwo({
         value={formData.phone}
         className="form-input"
         id="phone"
+        required="true"
       />
       <label className="form-label" htmlFor="addressLine">
         Address Line

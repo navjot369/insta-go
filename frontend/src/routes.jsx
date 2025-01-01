@@ -1,10 +1,12 @@
-import Home from "./components/Home"
+import Home from "./components/Home.jsx"
 import Account from "./components/account"
 import Login from "./components/account/login"
 import Signup from "./components/account/signup/Signup"
 import AboutUs from "./components/AboutUsPage/AboutUs"
 import ContactUs from "./components/ContactUs/ContactUs"
 import Landing from "./components/Landing"
+import BookRide from "./components/BookRide"
+import BookingRide from "./components/BookRide/BookingRide"
 
 const routes = [
     {
@@ -34,6 +36,14 @@ const routes = [
                         element: <Login />
                     }
                 ]
+            },
+            {
+                path: "/book",
+                element: <BookRide />
+            },
+            {
+                path: "/booking",
+                element: <BookingRide />
             }
         ]
     },

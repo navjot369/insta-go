@@ -3,6 +3,7 @@ import SignUpOne from "./SignUpOne";
 import SignUpTwo from "./SignUpTwo";
 import SignUpThree from "./SignUpThree";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -16,10 +17,12 @@ export default function Signup() {
       city: "",
       state: "",
     },
-    password: "",
+    password: "Hello@123",
   });
   const [step, setStep] = useState(0);
   const StepCont = useRef(null);
+  const [isLoading, setLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
 
   useEffect(() => {
     if (StepCont != null) {
@@ -38,10 +41,34 @@ export default function Signup() {
   const handleChange = (e) => {
     const target = e.target;
     setFormData({ ...formData, [target.name]: target.value });
-    // console.log(formData);
+    console.log(formData);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    await axios.post("http://localhost:8080/user/signup",
+      formData,{
+        headers:{
+          'Content-type' : 'application/json'
+        }
+      }
+    ).then(res => {
+      if(res.status == 200) {
+        setErrMessage("Account created successfully");
+        setTimeout(() => {
+          window.location.href = "/account/login";
+        })
+      }
+    }).catch(err => {
+      if(err.status == 400) {
+        setErrMessage("Input not valid");
+      }else if(err.status == 500) {
+        setErrMessage("Internal server error");
+      }
+    })
+  };
 
   return (
     <div className="form-outer-cont">
@@ -63,6 +90,10 @@ export default function Signup() {
           )}
         </div>
       </div>
+      {isLoading && <div className="loader-cont">
+        <div className="loader"></div>
+      </div>}
+      <p className="error-message">{errMessage}</p>
       <div className="step-outer-cont" ref={StepCont}>
         <SignUpOne
           formData={formData}

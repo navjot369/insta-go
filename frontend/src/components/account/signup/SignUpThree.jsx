@@ -35,9 +35,10 @@ export default function SignUpThree({
     setContinueEnable(Object.values(validatePassword).every(i => i));
   }, [validatePassword])
 
-  const handleSubmitStep = (e) => {
-    e.preventDefault();
-  };
+  // const handleSubmitStep = (e) => {
+  //   e.preventDefault();
+  //   handleSubmit();
+  // };
 
   return (
     <form onSubmit={handleSubmit} className="form-inner-cont step-cont">
@@ -55,6 +56,7 @@ export default function SignUpThree({
         value={formData.password}
         className="form-input"
         id="password"
+        required="true"
       />
       <label className="form-label" htmlFor="confirm-password">
         Confirm Password
@@ -69,6 +71,7 @@ export default function SignUpThree({
         value={verifyPassword}
         className="form-input"
         id="confirm-password"
+        required="true"
       />
       <div className="show-password-cont">
         <label>

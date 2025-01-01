@@ -1,5 +1,7 @@
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 import UserModel from "../models/user.model.js";
+
 
 
 const addUser = async (req, res) => {
@@ -53,13 +55,32 @@ const addUser = async (req, res) => {
 }
 
 const LogIn = async (req, res) => {
+
+    const {email, password} = req.body;
+    console.log(email, password);
     try {
-        const userData = await UserModel.findOne({ email: email });
-        if (userData) {
-            const passwordMatch = bcrypt.compare(userData.password, user.password);
+        const existingData = await UserModel.findOne({ email: email });
+        if (!existingData) {
+            return res.status(400).send({
+                message: "Invalid Credentials"
+            });
+        }
+            
+        const passwordMatch = await bcrypt.compare(password, existingData.password);
+        if(!passwordMatch) {
+            return res.status(400).send({
+                message: "Invalid Credentials"
+        });
         }
 
+        const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, {
+            expiresIn: "1h"
+        });
+
+        res.status(200).send({token});
+
     } catch (error) {
+        console.log(error);
         return res.status(500).send({
             message: "Internal Server Error"
         })

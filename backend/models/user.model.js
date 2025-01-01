@@ -1,6 +1,4 @@
 import mongoose from "mongoose"
-import bcrypt from "bcrypt"
-import jwt from "jsonwebtoken"
 
 
 const UserSchema = mongoose.Schema({
@@ -35,7 +33,7 @@ const UserSchema = mongoose.Schema({
     }
 });
 
-const UserModel = mongoose.model("user", UserSchema);
+const UserModel = mongoose.model("User", UserSchema);
 
 export default UserModel;
 
