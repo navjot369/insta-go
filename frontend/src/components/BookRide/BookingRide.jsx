@@ -29,7 +29,7 @@ export default function BookingRide() {
 
   const handleDone = () => {
     localStorage.removeItem("bikeBooking");
-    axios.post("http://localhost:8080/book/confirmBook", {
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/book/confirmBook`, {
         amount: bookingData.amount
     },{
         headers: {

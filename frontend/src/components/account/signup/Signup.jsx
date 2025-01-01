@@ -48,7 +48,7 @@ export default function Signup() {
     e.preventDefault();
     setLoading(true);
 
-    await axios.post("http://localhost:8080/user/signup",
+    await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/signup`,
       formData,{
         headers:{
           'Content-type' : 'application/json'

@@ -15,7 +15,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    axios.post("http://localhost:8080/user/login", formData,{
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/login`, formData,{
       headers: {
         'Content-Type' : "application/json"
       }

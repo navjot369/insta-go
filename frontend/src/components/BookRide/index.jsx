@@ -26,7 +26,7 @@ export default function BookRide() {
   useEffect(() => {
     if (userToken.length > 0) {
       axios
-        .get("http://localhost:8080/book/available", {
+        .get(`${import.meta.env.VITE_API_BASE_URL}/book/available`, {
           headers: {
             Authorization: userToken,
           }
@@ -67,7 +67,7 @@ export default function BookRide() {
   }, [bookedData]);
 
   const bookBike = () => {
-    axios.post("http://localhost:8080/book/reserve", {},{
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/book/reserve`, {},{
         headers: {
             Authorization: userToken,
           }
@@ -90,7 +90,7 @@ export default function BookRide() {
   }
 
   const EndBooking = () =>{
-    axios.post("http://localhost:8080/book/endBooking", {},{
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}/book/endBooking`, {},{
         headers: {
             Authorization: userToken
         }

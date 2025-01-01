@@ -1,4 +1,4 @@
-import Home from "./components/Home.jsx"
+import Home from "./components/home.jsx"
 import Account from "./components/account"
 import Login from "./components/account/login"
 import Signup from "./components/account/signup/Signup"

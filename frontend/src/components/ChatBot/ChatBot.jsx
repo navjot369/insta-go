@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./chatBot.css";
+import { useState } from "react";
+import "./ChatBot.css";
 import chatbotData from "./chatbotData.json";  // Import the chatbot data from the JSON file
 
 const ChatBot = () => {
@@ -87,7 +87,7 @@ const ChatBot = () => {
             </button>
           </div>
           <div className="chatbot-body">
-            <h1>"Any Query?"</h1>
+            <h1>&quot;Any Query?&quot;</h1>
             <div className="chat-box">
               <input
                 type="text"
