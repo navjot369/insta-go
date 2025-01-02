@@ -8,9 +8,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig(() => {
   return {
-    // define: {
-    //   API_BASE_URL: process.env.VITE_API_BASE_URL,
-    // },
     plugins: [react()]
   };
 });

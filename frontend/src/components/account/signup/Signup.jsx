@@ -17,7 +17,7 @@ export default function Signup() {
       city: "",
       state: "",
     },
-    password: "Hello@123",
+    password: "",
   });
   const [step, setStep] = useState(0);
   const StepCont = useRef(null);
@@ -41,7 +41,6 @@ export default function Signup() {
   const handleChange = (e) => {
     const target = e.target;
     setFormData({ ...formData, [target.name]: target.value });
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {

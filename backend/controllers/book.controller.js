@@ -31,7 +31,7 @@ const AvailableBike = async (req, res) => {
             }
         }
 
-        console.log(count);
+        // console.log(count);
 
         // console.log(Date.now());
         // allBikes[0].bookings.bookedAt = Date.now();
@@ -42,7 +42,7 @@ const AvailableBike = async (req, res) => {
             haveBooked: false,
             count});
     } catch(error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).send({
             message: "Internal Server Error"
         });

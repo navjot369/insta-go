@@ -8,8 +8,7 @@ const About = ({theme}) => {
         <div> <img className='aboutImg' src={aboutImg}></img></div>
         <div className='text'>
             <h1>About us</h1>
-            <p>Lorem ipsum dolor, sit hi ba iadbaibdi adiab idbaojnsnvdojanc asjncoajsbciopas coj anctio assumenda</p>
-            <p>Lorem ipsum dolor, sig elit.  magni pladandab diabdibai ceat illo. Distinctio assumenda</p>
+            <p>Welcome to InstaGO, your trusted platform for convenient, eco-friendly travel solutions around your university campus. We are passionate about empowering students with easy access to sustainable transportation, making every ride an opportunity to reduce your carbon footprint while enjoying seamless mobility.</p>
         </div>
     </div>
   )

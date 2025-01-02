@@ -22,6 +22,7 @@ const AdminAuth = async (req, res, next) => {
         req.body.username = tokenData.username;
         next();
     }catch(error) {
+        // console.log(error);
         if(error.name == "TokenExpiredError") {
             return res.status(498).send({
                 message: "Token expired"
