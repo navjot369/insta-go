@@ -10,69 +10,79 @@
   flex-direction: column;
   align-items: center;
   min-height: 600px;
-  background-color: white;
-  padding: 20px;
+  background-color: #f9f9f9; /* Lighter background for the section */
+  padding: 60px 20px; /* Increased padding */
   justify-content: center;
 }
 
 .title {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #ffc727;
+  font-size: 2.5em; /* Slightly larger title */
+  margin-bottom: 40px; /* Increased margin */
+  color: #252525; /* Darker color for better contrast on light background */
   text-align: center;
+  font-weight: 600;
 }
 
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px; /* Increased gap */
   justify-content: center;
 }
 
 .card {
-  background-color: rgb(200, 196, 196);
-  color: black;
-  border-radius: 8px;
+  background-color: #ffffff; /* Clean white background for cards */
+  color: #333; /* Dark text for readability */
+  border-radius: 12px; /* Softer, more modern border radius */
   height: auto;
-  padding: 20px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  transition: transform 0.3s ease;
+  padding: 25px; /* Increased padding inside card */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Softer, more diffused shadow */
+  width: 320px; /* Slightly wider cards */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smoother transitions */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space for button alignment */
 }
 
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-10px) scale(1.03); /* Lift and slightly scale up */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .card h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 1.6em; /* Larger card heading */
+  margin-bottom: 15px;
+  color: #2c3e50; /* Professional dark blue/grey for heading */
 }
 
 .card p {
   font-size: 1em;
-  line-height: 1.5em;
-  margin-bottom: 10px;
+  line-height: 1.6em; /* Improved line spacing */
+  margin-bottom: 20px; /* More space before button */
+  flex-grow: 1; /* Allow paragraph to take available space */
 }
 
 .card button {
-  background-color: #ffc727;
-  color: #f4f4f5;
+  background-color: #ffc727; /* Primary action color */
+  color: #fff; /* White text on button */
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 12px 24px; /* Larger padding */
+  border-radius: 6px; /* Softer button corners */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-weight: 500;
+  align-self: flex-start; /* Align button to the start of the card's cross axis */
 }
 
 .card button:hover {
-  background-color: #ffc727;
+  background-color: #e6b322; /* Darker shade on hover */
+  transform: scale(1.05); /* Slight scale effect on button hover */
 }
 
 /* Medium Devices (Tablets and smaller laptops) */
 @media (max-width: 768px) {
   .whyus {
-    padding: 50px 20px;
+    padding: 40px 20px; /* Adjusted padding */
     margin: auto;
     min-height: auto; /* Adjusts height for smaller screens */
   }
@@ -83,7 +93,7 @@
   }
 
   .card {
-    width: 90%; /* Reduce card width */
+    width: 85%; /* Adjust card width for tablets */
     margin-bottom: 20px; /* Add spacing between cards */
   }
 }
@@ -91,34 +101,65 @@
 /* Small Devices (Phones) */
 @media (max-width: 480px) {
   .title {
-    font-size: 1.5em;
+    font-size: 2em; /* Adjusted title size for mobile */
   }
 
   .card {
     padding: 15px;
-    width: 100%; /* Full width on small screens */
+    width: 95%; /* Wider cards on small mobile */
   }
 
   .card h2 {
-    font-size: 1.2em;
+    font-size: 1.4em;
   }
 
   .card p {
-    font-size: 0.9em;
+    font-size: 0.95em;
     line-height: 1.4em;
   }
 
   .card button {
     font-size: 0.9em;
-    padding: 8px 16px;
+    padding: 10px 20px;
   }
 }
 
 /* Dark Theme */
 .dark .whyus {
-  background-color: black;
-  color: #fff;
+  background-color: #000000; /* Darker background for the section in dark mode */
+  color: #e0e0e0; /* Light text color for dark mode */
   display: flex;
   animation-duration: 300ms;
-  box-shadow: 10px 6px 5px rgb(0, 0, 0);
+  box-shadow: none; /* Remove or adjust box-shadow for dark mode if it doesn't fit */
+}
+
+.dark .title {
+  color: #ffc727; /* Keep brand color for title or use a light variant */
+}
+
+.dark .card {
+  background-color: #2c2c2c; /* Dark card background */
+  color: #f0f0f0; /* Light text on dark card */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Adjusted shadow for dark mode */
+}
+
+.dark .card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.dark .card h2 {
+  color: #e8e8e8; /* Lighter heading for dark cards */
+}
+
+.dark .card p {
+  color: #cccccc; /* Lighter paragraph text for dark cards */
+}
+
+.dark .card button {
+  background-color: #ffc727; /* Keep button color or adjust if needed */
+  color: #1a1a1a; /* Dark text on yellow button for contrast */
+}
+
+.dark .card button:hover {
+  background-color: #e6b322;
 }

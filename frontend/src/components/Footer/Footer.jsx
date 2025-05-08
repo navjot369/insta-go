@@ -1,10 +1,10 @@
-
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({theme}) => {
+  console.log(theme);
   return (
-    <footer className="footer">
+    <footer className={`footer ${theme === 'dark' ? 'footer-dark' : 'footer-light'}`}>
       <div className="footer-top">
         <div className="footer-column">
           <h4>For Business</h4>

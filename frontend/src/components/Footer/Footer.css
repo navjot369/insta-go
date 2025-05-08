@@ -1,19 +1,80 @@
 * {
+    /* Consider moving global font styles to a more general CSS file like index.css or App.css */
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+  :root {
+    --footer-dark-bg: #000000;
+    --footer-dark-text: #fff;
+    --footer-dark-link-hover: #61dafb;
+    --footer-dark-border: #444;
+
+    --footer-light-bg: #f8f9fa;
+    --footer-light-text: #212529;
+    --footer-light-link-hover: #007bff;
+    --footer-light-border: #dee2e6;
+  }
 
 .footer {
-    background-color: #282c34;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    /* Default to dark theme properties, can be overridden by .footer-light */
+    background-color: var(--footer-dark-bg);
+    color: var(--footer-dark-text);
+    font-family: Arial, sans-serif; /* Specific font for footer */
     padding: 20px 40px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme changes */
+  }
+
+  .footer-light {
+    background-color: var(--footer-light-bg);
+    color: var(--footer-light-text);
+  }
+
+  .footer-light .footer-column h4 {
+    color: var(--footer-light-text); /* Ensure heading color contrasts with light background */
   }
   
-  .footer-top {
+  .footer-light .footer-column ul li {
+    color: var(--footer-light-text); /* Ensure list item color contrasts */
+  }
+
+  .footer-light .footer-column ul li:hover {
+    color: var(--footer-light-link-hover); /* Hover color for light theme */
+    text-decoration: underline;
+  }
+
+  .footer-light .social-icons i:hover {
+    color: var(--footer-light-link-hover);
+  }
+
+  .footer-light .footer-bottom {
+    border-top: 1px solid var(--footer-light-border);
+  }
+  
+  .footer-light .footer-bottom p {
+    color: var(--footer-light-text);
+  }
+
+  .footer-light .footer-bottom ul li {
+    color: var(--footer-light-text);
+  }
+  
+  .footer-light .footer-bottom ul li:hover {
+    color: var(--footer-light-link-hover);
+    text-decoration: underline;
+  }
+
+  .footer-light .footer-admin-link {
+    color: var(--footer-light-text); /* Ensure admin link is visible in light theme */
+  }
+
+  .footer-light .footer-admin-link:hover {
+    color: var(--footer-light-link-hover);
+  }
+
+.footer-top {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -27,7 +88,7 @@
   }
   
   .footer-column h4 {
-    font-size: 16px;
+    font-size: 1.1rem; /* Using rem for scalability */
     margin-bottom: 10px;
     font-weight: bold;
   }
@@ -39,23 +100,24 @@
   
   .footer-column ul li {
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 0.95rem; /* Using rem for scalability */
     cursor: pointer;
   }
   
   .footer-column ul li:hover {
     text-decoration: underline;
+    color: var(--footer-dark-link-hover); /* Default hover for dark theme */
   }
   
   /* Social Icons */
   .social-icons i {
-    font-size: 18px;
+    font-size: 1.2rem; /* Using rem for scalability */
     margin: 0 8px;
     cursor: pointer;
   }
   
   .social-icons i:hover {
-    color: #61dafb;
+    color: var(--footer-dark-link-hover); /* Default hover for dark theme */
   }
   
   /* Footer Bottom */
@@ -64,9 +126,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #444;
+    border-top: 1px solid var(--footer-dark-border); /* Default border for dark theme */
     padding-top: 10px;
-    font-size: 14px;
+    font-size: 0.9rem; /* Using rem for scalability */
   }
   
   .footer-bottom p {
@@ -89,6 +151,7 @@
   
   .footer-bottom ul li:hover {
     text-decoration: underline;
+    color: var(--footer-dark-link-hover); /* Default hover for dark theme */
   }
   
   /* Responsive Design */
@@ -115,8 +178,13 @@
     }
   }
   .footer-admin-link {
-    color: white;
+    color: var(--footer-dark-text); /* Default color for dark theme */
     text-decoration: none;
+  }
+
+  .footer-admin-link:hover {
+    color: var(--footer-dark-link-hover);
+    text-decoration: underline;
   }
   
   @media (max-width: 480px) {
@@ -125,19 +193,18 @@
     }
   
     .footer-column h4 {
-      font-size: 14px;
+      font-size: 1rem; /* Adjusted for smaller screens */
     }
   
     .footer-column ul li {
-      font-size: 12px;
+      font-size: 0.9rem; /* Adjusted for smaller screens */
     }
   
     .footer-bottom {
-      font-size: 12px;
+      font-size: 0.85rem; /* Adjusted for smaller screens */
     }
   
     .social-icons i {
-      font-size: 16px;
+      font-size: 1.1rem; /* Adjusted for smaller screens */
     }
   }
-  

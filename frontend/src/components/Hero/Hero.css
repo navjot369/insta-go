@@ -3,49 +3,85 @@
 }
 
 .hero {
-    height: 620px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+    padding: 20px 10%;
+    background-color: #ffffff; /* Default light background */
+    color: #333333; /* Default dark text for light background */
+    transition: background-color 0.5s ease, color 0.5s ease;
+    min-height: calc(100vh - 70px); /* Assuming navbar height is 70px */
+}
+
+.dark .hero {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Lighter text for dark background */
 }
 
 .herotext {
+    max-width: 50%;
     display: flex;
-    width: 400px;
     gap: 20px;
     font-size: larger;
     flex-direction: column;
 }
 
 .tagline {
-    color: #ffc727;
-    font-size: xx-large;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffc727; /* Accent color for tagline */
+}
+
+.dark .tagline {
+    color: #ffd700; /* Slightly adjusted accent for dark mode if needed */
+}
+
+.herotext div:not(.tagline) {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .herobutton {
-    cursor: pointer;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 30px;
-    margin: auto;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 6px;
     background-color: #ffc727;
+    color: black;
+    padding: 8px 18px; /* Adjusted padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem; /* Adjusted font size */
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 150px; /* Set a specific width */
+    text-align: center; /* Center text if width is fixed */
 }
 
-.dark .hero {
-    background-color: black;
-    color: #fff;
-    animation-duration: 300ms;
+.herobutton:hover {
+    background-color: #e6b322;
+    transform: translateY(-2px);
+}
+
+.imgdiv {
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .darkscooter {
-    height: 300px;
-    width: 300px;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.2)); /* Subtle shadow for the scooter */
 }
 
+.dark .darkscooter {
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.1)); /* Lighter shadow for dark mode */
+}
+
+
+/* Responsive adjustments */
 @media (max-width: 1024px) {
     .hero {
         height: 520px;
@@ -65,9 +101,10 @@
     }
 
     .herobutton {
-        width: 110px;
-        height: 45px;
+        width: 130px; /* Adjusted width for medium screens */
+        height: auto; /* Adjust height based on padding */
         font-size: medium;
+        padding: 10px 15px; /* Adjust padding for medium screens */
     }
 
     .darkscooter {
@@ -78,26 +115,32 @@
 
 @media (max-width: 768px) {
     .hero {
-        height: auto;
-        padding: 20px;
         flex-direction: column;
-        align-items: center;
+        text-align: center;
+        padding: 20px 5%;
     }
 
     .herotext {
-        width: 100%;
-        gap: 10px;
-        font-size: small;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .imgdiv {
+        max-width: 70%;
     }
 
     .tagline {
-        font-size: large;
+        font-size: 2.5rem;
+    }
+
+    .herotext div:not(.tagline) {
+        font-size: 1rem;
     }
 
     .herobutton {
-        width: 100px;
-        height: 40px;
-        font-size: small;
+        padding: 8px 15px; /* Adjusted padding for smaller screens */
+        font-size: 0.9rem; /* Adjusted font size for smaller screens */
+        width: 120px; /* Adjusted width for smaller screens */
     }
 
     .darkscooter {
@@ -118,13 +161,13 @@
     }
 
     .tagline {
-        font-size: medium;
+        font-size: 2rem;
     }
 
     .herobutton {
-        width: 90px;
-        height: 35px;
-        font-size: smaller;
+        padding: 6px 12px; /* Further adjusted padding for very small screens */
+        font-size: 0.8rem; /* Further adjusted font size for very small screens */
+        width: 100px; /* Adjusted width for very small screens */
     }
 
     .darkscooter {

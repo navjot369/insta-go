@@ -2,7 +2,7 @@ import Navbar from "./Navbar/Navbar";
 import { useState, useEffect } from "react";
 import Footer from "./Footer/Footer";
 import Chatbot from './ChatBot/ChatBot';
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 
 export default function Home() {
   const [theme, setTheme] = useState(
@@ -23,8 +23,8 @@ export default function Home() {
   return (
     <div className="container">
       <Navbar theme={theme} setTheme={setTheme} />
-      <Outlet />
-      <Footer/>
+      <Outlet context={{ theme }} />
+      <Footer theme={theme}/>
       <Chatbot />
     </div>
   );

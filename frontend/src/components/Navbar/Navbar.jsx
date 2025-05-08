@@ -2,6 +2,7 @@
 import './Navbar.css';
 import { MdDarkMode } from "react-icons/md";
 import { HiSun } from "react-icons/hi";
+import { FaWallet } from "react-icons/fa"; // Import wallet icon
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
@@ -22,11 +23,16 @@ export default function Navbar({ theme, setTheme }) {
         <Link className='contact' to="/Contact-us">Contact us</Link>
       </div>
       
-      {isLogged? 
-      <button className="auth-button" onClick={() => {
-        localStorage.removeItem("user");
-        window.location.reload();
-      }}>Log out</button>
+      {true ?
+      <div className="auth-actions"> {/* Group wallet and logout */}
+        <Link to="/wallet" className="wallet-icon">
+          <FaWallet />
+        </Link>
+        <button className="auth-button" onClick={() => {
+          localStorage.removeItem("user");
+          window.location.reload();
+        }}>Log out</button>
+      </div>
       :<div className='login-sign'>
         <Link className='log' to="/account/login">Log in</Link>
         <Link className='sign' to="/account/signup">sign up</Link>
