@@ -13,6 +13,7 @@ import AdminUsers from "./components/admin/AdminUsers.jsx";
 import AdminBikes from "./components/admin/AdminBikes.jsx";
 import AdminBookings from "./components/admin/AdminBookings.jsx";
 import AdminHistory from "./components/admin/AdminHistory.jsx";
+import Wallet from "./components/Wallet/Wallet.jsx";
 
 const routes = [
   {
@@ -52,6 +53,10 @@ const routes = [
       {
         path: "/booking",
         element: <BookingRide />,
+      },
+      {
+        path: "/wallet",
+        element: <Wallet />,
       },
     ],
   },

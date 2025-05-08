@@ -1,4 +1,3 @@
-
 * {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -13,8 +12,17 @@
     width: 100%;
     height: 70px;
     padding: 15px 10%;
-    box-shadow: 10px 2px 5px black;
+    box-shadow: 10px 2px 5px rgba(0, 0, 0, 0.1); /* Softer shadow for light mode */
     transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.navbar h1 { /* Style for InstaGO title */
+    color: black;
+    transition: color 0.5s ease;
+}
+
+.dark .navbar h1 { /* InstaGO title in dark mode */
+    color: white;
 }
 
 .logo {
@@ -75,10 +83,10 @@
 
 
 .dark .navbar {
-    background-color: rgba(0, 0, 0, 0.94);
+    background-color: #1a1a1a; /* Darker background for navbar */
     color: #fff;
     animation-duration: 300ms;
-    box-shadow: 10px 6px 5px rgb(0, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Adjusted shadow for dark mode */
 }
 .auth-button {
     color: black;
@@ -96,6 +104,16 @@
     font-weight: bold;
 }
 
+.theme svg { /* Style for theme toggle icons */
+    cursor: pointer;
+    font-size: 24px; /* Adjust size as needed */
+    color: black; /* Default color for light mode */
+    transition: color 0.5s ease;
+}
+
+.dark .theme svg { /* Theme toggle icons in dark mode */
+    color: white;
+}
 
 
 /* a {
