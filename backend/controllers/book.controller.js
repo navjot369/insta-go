@@ -18,15 +18,41 @@ const AvailableBike = async (req, res) => {
                 if(date - bike.bookings.bookedAt > 5*60*100) {
                     bike.bookings.status = "Available";
                     bike.bookings.bookedAt = null;
-                    bike.save();
+                    bike.save(); // bike.bookings.status was "Progress" and timed out
                     count++;
                 }
-            }else{
-                if(bike.bookings.bookedBy.equals(userId)) {
-                    return res.status(200).send({
-                        haveBooked: true,
-                        bike
-                    })
+            } else if (bike.bookings.status === "Booked") { // Bike is marked as "Booked"
+                if (bike.bookings.bookedBy && bike.bookings.bookedBy.equals(userId)) {
+                    // This bike is booked by the current user. Fetch details from BookingModel.
+                    const bookingRecord = await BookingModel.findOne({ user: userId, bike: bike._id }).sort({ bookedAt: -1 });
+
+                    if (bookingRecord) {
+                        // We need to return a structure that the frontend expects.
+                        // Frontend index.jsx expects:
+                        // data.bike.bikeNumber
+                        // data.bike.bookings.bookedAt
+                        // data.bike.bookings.amount (as paidAmount)
+
+                        // Create a response object that mimics this structure but with correct values.
+                        const responseBikeObject = {
+                            _id: bike._id,
+                            bikeNumber: bike.bikeNumber,
+                            type: bike.type, // and any other bike fields frontend might need
+                            // ...
+                            bookings: { // This is the critical part for the frontend
+                                status: "Booked", // Correct status
+                                bookedAt: bookingRecord.bookedAt, // Actual booking time from BookingModel
+                                bookedBy: bike.bookings.bookedBy, // Original bookedBy
+                                amount: bookingRecord.paidAmount, // Actual paid amount from BookingModel
+                                helmets: bookingRecord.helmets // Helmets from BookingModel
+                            }
+                        };
+                        return res.status(200).send({
+                            haveBooked: true,
+                            bike: responseBikeObject // Send the modified bike object
+                        });
+                    }
+                    // If no bookingRecord, it's an inconsistency. Fall through.
                 }
             }
         }
@@ -51,6 +77,7 @@ const AvailableBike = async (req, res) => {
 
 const ReserveBike = async (req, res) => {
     try{
+        const { helmets: requestedHelmets = 0 } = req.body; // Default to 0 if not provided
         const allBikes = await BikeModel.find({});
 
         let bike= null;
@@ -76,14 +103,20 @@ const ReserveBike = async (req, res) => {
         bike.bookings.status = "Progress";
         bike.bookings.bookedAt = Date.now();
         bike.bookings.bookedBy = req.body.user._id;
+        // Note: We are NOT storing requestedHelmets in BikeModel.bookings here.
+        // Helmet count is finalized during ConfirmBook and stored in BookingModel.
+        // ReserveBike just passes it through for the current transaction.
 
-        bike.save();
+        await bike.save(); // Ensure save operation completes
+
+        const BASE_RIDE_PRICE = 150; // Define a base price
 
         return res.status(200).send({
             bikeReserved: true,
             bikeId: bike._id,
             bikeNumber: bike.bikeNumber,
-            amount: 400,
+            amount: BASE_RIDE_PRICE, // This is the base amount for the ride
+            requestedHelmets: requestedHelmets, // Pass back the number of helmets requested
             email: req.body.user.email,
             username: req.body.user.username,
             phone: req.body.user.phone
@@ -125,7 +158,7 @@ const ConfirmBook = async (req, res) => {
                 bike: bikeData._id,
                 user: userId,
                 paidAmount: req.body.amount,
-
+                helmets: req.body.helmets 
             })
 
             return res.status(200).send({
@@ -173,6 +206,7 @@ const EndBooking = async (req, res) => {
             user: bookingDetail.user,
             bookedAt: bookingDetail.bookedAt,
             paidAmount: bookingDetail.paidAmount,
+            helmets: bookingDetail.helmets,
             feedback: req.body.feedback
         }
 
@@ -214,4 +248,46 @@ const EndBooking = async (req, res) => {
     }
 }
 
-export {AvailableBike, ReserveBike, ConfirmBook, EndBooking};
+const CancelReservation = async (req, res) => {
+    try {
+        const userId = req.body.user._id;
+
+        // Find the bike currently in "Progress" state for this user
+        // There should ideally be only one such bike per user.
+        const bikeToCancel = await BikeModel.findOne({ 
+            "bookings.bookedBy": userId, 
+            "bookings.status": "Progress" 
+        });
+
+        if (!bikeToCancel) {
+            // No bike in "Progress" found for this user to cancel.
+            // This might happen if the 5-min timer already made it available,
+            // or if they never had a bike in progress.
+            // It's safe to just let the frontend proceed with clearing localStorage.
+            return res.status(200).send({ 
+                ok: true, 
+                message: "No active reservation to cancel, or already timed out." 
+            });
+        }
+
+        // Revert bike status to Available
+        bikeToCancel.bookings.status = "Available";
+        bikeToCancel.bookings.bookedAt = null;
+        bikeToCancel.bookings.bookedBy = null;
+        await bikeToCancel.save();
+
+        return res.status(200).send({ 
+            ok: true, 
+            message: "Reservation cancelled successfully. Bike is now available." 
+        });
+
+    } catch (error) {
+        console.error("Error cancelling reservation:", error);
+        return res.status(500).send({
+            ok: false,
+            message: "Internal Server Error while cancelling reservation."
+        });
+    }
+};
+
+export {AvailableBike, ReserveBike, ConfirmBook, EndBooking, CancelReservation};

@@ -26,6 +26,13 @@ const HistorySchema = mongoose.Schema({
     feedback: {
         type: String,
         trim: true
+    },
+    helmets: {
+        type: Number,
+        required: true,
+        min: 0,
+        max: 2,
+        default: 0
     }
 })
 

@@ -15,24 +15,33 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrMessage(""); // Clear previous error messages
     axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/login`, formData,{
       headers: {
         'Content-Type' : "application/json"
       }
     }).then((res) => {
-      if(res.status == 200) {
-        localStorage.setItem("user", res.data.token);
+      if(res.status === 200) { // Use strict equality for status check
+        localStorage.setItem("user", `Bearer ${res.data.token}`);
         window.location.href = "/";
+      } else {
+        // Handle cases where status is not 200 but not an error caught by .catch
+        setErrMessage(res.data.message || "Login failed. Please try again.");
       }
     }).catch((err) => {
-      console.log(err);
-      if(err.status == 400) {
+      console.error("Login error:", err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setErrMessage(err.response.data.message);
+      } else if (err.response && err.response.status === 400) {
         setErrMessage("Invalid Credentials");
+      } else if (err.request) {
+        setErrMessage("Network error. Please check your connection.");
+      } else {
+        setErrMessage("An unexpected error occurred. Please try again.");
       }
-    })
-
-    setLoading(false);
-    // console.log(res);
+    }).finally(() => {
+      setLoading(false); // This will run whether the promise is resolved or rejected
+    });
   };
 
   return (

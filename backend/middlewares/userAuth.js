@@ -4,11 +4,16 @@ import UserModel from "../models/user.model.js";
 const userAuth = async (req, res, next) => {
     try{
         // console.log(req.headers);
-        const token = req.headers.authorization;
+        let token = req.headers.authorization;
         if(!token) {
             return res.status(400).send({
                 message: "Unauthorized"
             });
+        }
+
+        if (token.startsWith('Bearer ')) {
+            // Remove Bearer from string
+            token = token.slice(7, token.length);
         }
 
         const tokenData = jwt.verify(token, process.env.JWT_SECRET_KEY);
@@ -36,4 +41,3 @@ const userAuth = async (req, res, next) => {
 }
 
 export default userAuth;
-
