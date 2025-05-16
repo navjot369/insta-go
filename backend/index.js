@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from "express";
 import userRoute from "./routes/user.routes.js"
 import adminRoute from "./routes/admin.routes.js"
@@ -6,7 +7,7 @@ import "./config/db.js";
 
 
 const app = express();
-const port = 8080;
+const port = 8081;
 
 app.use(express.json());
 app.use("*", (req, res, next) => {
@@ -28,4 +29,3 @@ app.listen(port, () => {
 app.use("/user", userRoute);
 app.use("/admin", adminRoute);
 app.use("/book", bookRoute);
-

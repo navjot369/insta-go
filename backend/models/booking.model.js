@@ -23,6 +23,13 @@ const BookingSchema = mongoose.Schema({
     paidAmount: {
         type: Number,
         required: true
+    },
+    helmets: {
+        type: Number,
+        required: true,
+        min: 0,
+        max: 2,
+        default: 0
     }
 })
 

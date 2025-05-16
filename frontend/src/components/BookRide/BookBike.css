@@ -1,223 +1,1044 @@
-.book-ride-outer-cont {
-    position: relative;
+/* General Page Layout */
+.book-ride-page {
     width: 100%;
-    height: 80vh;
-    background-color: white;
+    min-height: 85vh; /* Ensure it takes good vertical space */
+    background-color: #f4f7f6; /* Light, neutral background */
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px 20px; /* More padding */
+    box-sizing: border-box;
 }
-.dark .book-ride-outer-cont {
-    background-color: black;
+
+.dark .book-ride-page {
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0;
 }
-.book-ride-inner-cont {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-}
-.img-cont {
+
+.booking-content-wrapper {
     display: flex;
+    width: 100%;
+    max-width: 1100px; /* Max width for content */
+    background-color: #ffffff; /* Card container background */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure child elements respect border radius */
+}
+
+.dark .booking-content-wrapper {
+    background-color: #2c2c2c; /* Dark card container */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.booking-info-column {
+    flex: 1.2; /* Give more space to info */
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    animation: location-updown 2s ease-in-out 0s infinite alternate;
-}
-@keyframes location-updown {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-@media screen and (max-width: 800px) {
-    .book-ride-inner-cont {
-        grid-template-columns: 1fr;
-    }
-    .img-cont {
-        display: none;
-    }
 }
 
-.location-pin {
-    width: 100%;
-}
-.welcome-text {
-    font-size: 50px;
-}
-
-
-.available-outer-cont {
-    width: 100%;
+.booking-image-column {
+    flex: 0.8; /* Less space for image, or adjust as needed */
+    background-color: #e9f5ff; /* A light accent for the image side */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px;
-}
-.thumb-nail-line {
-    font-size: 20px;
-    padding: 10px 0;
-}
-.already-booked {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.booking-details-cont {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background: #1e78ba;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 15px;
-    gap: 5px;
-    border-radius: 5px;
-    box-shadow: 4px 4px 0 0 #97971c;
-}
-.title-booking {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: right;
-}
-.label-booking {
-    padding-top: 1px;
-    font-size: 18px;
-}
-.available-inner-cont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 5px;
-}
-.available-count {
-    font-size: 28px;
-    padding: 20px 5px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.book-bike-button {
-    font-size: 20px;
-    background-color: #f6f64f;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: bold;
-    border: none;
-    align-content: center;
-    transition-duration: 300ms;
-}
-.book-bike-button:hover {
-    transform: scale(1.1);
-}
-.dark .book-ride-inner-cont {
-    color: white;
-}
-.bike-booking-outer-cont {
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0;
-}
-.end-trip-cont p{
-    margin-top: 20px;
-    margin-right: 40px;
-    font-size: 20px;
-}
-.end-trip-cont button {
-    background-color: #97971c;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 5px;
-    width: 100%;
-    margin-left: 20px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 5px;
-}
-.end-trip-cont button:hover {
-    background-color: #d8d86c;
-}
-.bike-booking-inner-cont {
-    border-radius: 30px;
-    background: white;
-    overflow: hidden;
-}
-.dark .bike-booking-inner-cont{
-    background: rgb(55, 54, 54);
-}
-.payment-heading {
-    font-size: 50px;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
-    background-color: darkcyan;
+}
+.dark .booking-image-column {
+    background-color: #253038;
+}
+
+.responsive-booking-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Control image height */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: #555;
+}
+.dark .image-caption {
+    color: #aaa;
+}
+
+/* Card Styling */
+.booking-card {
+    width: 100%;
+    padding: 25px; /* Internal padding for card content */
+    border-radius: 8px; /* Consistent with image */
+    /* background-color: #fff; */ /* Already on wrapper, can be removed if info-column is the card */
+}
+.dark .booking-card {
+    /* background-color: #333; */
+}
+
+.card-title {
+    font-size: 2rem; /* Larger title */
+    font-weight: 600;
+    color: #333; /* Darker text for titles */
+    margin-bottom: 8px;
+}
+.dark .card-title {
+    color: #f0f0f0;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+.dark .card-subtitle {
+    color: #bbb;
+}
+
+/* Active Booking Card Specifics */
+.active-booking-details p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.dark .active-booking-details p {
+    color: #ccc;
+}
+.active-booking-details strong {
+    font-weight: 500;
+    color: #222;
+}
+.dark .active-booking-details strong {
+    color: #e0e0e0;
+}
+
+/* New Booking Form Specifics */
+.new-booking-form .available-bikes-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #28a745; /* Green for availability */
+    margin-bottom: 20px;
+    text-align: center;
+}
+.dark .new-booking-form .available-bikes-text {
+    color: #3ddc84;
+}
+.available-bikes-text .count {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+.dark .section-title {
+    color: #e0e0e0;
+    border-bottom-color: #444;
+}
+.section-subtitle {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+.dark .section-subtitle {
+    color: #aaa;
+}
+
+/* Helmet Selection UI (using existing classes, ensuring they fit) */
+.helmet-selection-section {
+    margin-bottom: 25px;
+}
+.helmet-icon-img { /* For the Bike icon next to "Need Helmets?" */
+    margin-right: 10px; /* Increased margin */
+    vertical-align: middle;
+    color: #007bff; /* Match primary button color or choose a theme color */
+}
+.dark .helmet-icon-img {
+    color: #00aaff; /* Brighter for dark mode */
+}
+
+.helmet-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.helmet-button { 
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px; 
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    display: flex; /* For centering the SVG icon */
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    padding: 0; /* Remove padding if icon size is controlled directly */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Lucide icons within the button will inherit color from parent by default, or set explicitly */
+.helmet-button svg { 
+    /* stroke-width: 2; /* Default is usually 2 for Lucide, can adjust */
+    /* color: #333; /* Icon color, if not inheriting properly */
+}
+
+.dark .helmet-button {
+    background-color: #555;
+    border-color: #777;
+    color: #fff;
+}
+.helmet-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+.dark .helmet-button:hover:not(:disabled) {
+    background-color: #666;
+}
+.helmet-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.helmet-count-value { /* If you used this class */
+    font-size: 1.4rem;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+    color: #333;
+}
+.dark .helmet-count-value {
+    color: #f0f0f0;
+}
+
+
+/* Price Calculation Section */
+.price-calculation-section {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+.dark .price-calculation-section {
+    background-color: #383838;
+}
+.price-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+.dark .price-line {
+    color: #ccc;
+}
+.price-line.total {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #222;
+    margin-top: 10px;
+}
+.dark .price-line.total {
+    color: #fff;
+}
+.price-divider {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 10px 0;
+}
+.dark .price-divider {
+    background-color: #4f4f4f;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.75rem 1.5rem; /* Larger padding */
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.3rem; /* Standard border radius */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%; /* Make buttons full width within their container */
+    margin-top: 15px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff; /* Primary blue */
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.dark .btn-primary {
+    background-color: #0088cc; /* Brighter blue for dark mode */
+    border-color: #0088cc;
+}
+.dark .btn-primary:hover {
+    background-color: #006699;
+    border-color: #006699;
+}
+
+.btn-end-trip { /* Specific styling if needed, e.g., different color */
+    background-color: #dc3545; /* Red for end/cancel actions */
+    border-color: #dc3545;
+    color: white;
+}
+.btn-end-trip:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+.dark .btn-end-trip {
+    background-color: #e57373;
+    border-color: #e57373;
+}
+.dark .btn-end-trip:hover {
+    background-color: #ef5350;
+    border-color: #ef5350;
+}
+
+
+/* No Bikes Message */
+.no-bikes-message {
+    text-align: center;
+    padding: 30px;
+    font-size: 1.1rem;
+    color: #777;
+}
+.dark .no-bikes-message {
+    color: #aaa;
+}
+.no-bikes-message p {
+    margin-bottom: 10px;
+}
+
+/* Loader */
+.book-ride-page-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh; /* Full viewport height for loader */
+}
+.book-ride-page-loader .loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+.dark .book-ride-page-loader .loader {
+    border-color: #555;
+    border-top-color: #0088cc;
+}
+.book-ride-page-loader p {
+    font-size: 1.1rem;
+    color: #555;
+}
+.dark .book-ride-page-loader p {
+    color: #bbb;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 900px) {
+    .booking-content-wrapper {
+        flex-direction: column;
+    }
+    .booking-image-column {
+        order: -1; /* Image on top on smaller screens */
+        padding: 20px;
+        max-height: 250px; /* Adjust image container height */
+    }
+    .responsive-booking-image {
+        max-height: 180px; /* Adjust image height */
+    }
+    .booking-info-column {
+        padding: 25px;
+    }
+    .card-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .book-ride-page {
+        padding: 20px 10px;
+    }
+    .booking-info-column {
+        padding: 20px;
+    }
+    .card-title {
+        font-size: 1.5rem;
+    }
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .helmet-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    .helmet-count-value {
+        font-size: 1.2rem;
+    }
+}
+
+/* Ensure existing helmet styles from previous steps are either integrated or overridden if necessary */
+/* The .helmet-icon class was used in payment page, .helmet-icon-img is in booking page */
+.helmet-icon, .helmet-icon-img { /* General styling for helmet icons */
+    margin-right: 8px;
+    font-size: 1.3em; 
+    vertical-align: middle;
+}
+
+/* Fallback for .title-payment if it's still used by helmet section in index.jsx (it was in an earlier version) */
+/* This should ideally be replaced by .section-title or similar */
+.title-payment { 
+    font-size: 1.1rem;
+    font-weight: 500;
+    /* Add other styles if this class is still in use and needs theming */
+}
+.dark .title-payment {
+    /* color: #e0e0e0; */
+}
+
+/* Remove styles for old layout elements if they are no longer used */
+.book-ride-outer-cont, .book-ride-inner-cont, .available-outer-cont, .available-inner-cont, .already-booked {
+    /* These might be deprecated by the new .book-ride-page and .booking-card structure */
+    /* Review index.jsx to confirm if these top-level containers are still used. */
+    /* If not, these can be removed or their styles significantly reduced. */
+    /* For now, keeping them to avoid breaking anything if they are somehow still relevant. */
+}
+
+/* Styles for payment page elements (BookingRide.jsx) */
+/* Ensure these are distinct or well-integrated if BookBike.css is shared with BookRide/index.jsx */
+
+/* Outer container for payment page - already has .dark rule from .book-ride-page */
+/* .bike-booking-outer-cont is used by BookingRide.jsx */
+.dark .bike-booking-outer-cont {
+    background-color: #121212; /* Darker background for payment page specifically if needed */
+    color: #e0e0e0;
+}
+
+/* Inner container for payment card */
+/* .bike-booking-inner-cont is used by BookingRide.jsx */
+.dark .bike-booking-inner-cont {
+    background-color: #1e1e1e; /* Dark card background for payment */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333; /* Subtle border for dark card */
+}
+
+.payment-heading {
+    font-size: 2.5rem;
+    padding: 25px;
+    text-align: center;
+    background-color: darkcyan; 
+    color: white; /* Ensure text is white */
 }
 .dark .payment-heading {
-    background-color: rgb(6, 81, 81);
+    background-color: #005f5f; /* Darker cyan for dark mode */
+    color: #f0f0f0; /* Light text */
 }
-.payment-heading p {
-    font-size: 15px;
-    color: white;
-}
-.time-header {
+
+.payment-heading p { /* "Time Left" text */
+    font-size: 0.9rem;
+    color: white; /* Already white, ensure it stays */
     margin-top: 5px;
-    color: white;
-    font-size: 30px;
 }
-.payment-detail {
-    font-family: 'Times New Roman', Times, serif;
-    padding: 30px;
+.dark .payment-heading p {
+    color: #b0e0e6; /* Lighter cyan/white for subtext */
+}
+
+.time-header { /* Timer display */
+    margin-top: 8px;
+    color: white; /* Already white */
+    font-size: 1.8rem;
+}
+.dark .time-header {
+    color: #ffffff; /* Ensure high contrast for timer */
+}
+
+.payment-details-cont { /* Container for details grid and QR */
+    /* No specific dark mode needed if children are handled */
+}
+
+.payment-detail { /* Grid for payment info */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 25px; /* Increased padding */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: auto 1fr; 
+    gap: 15px 20px; /* Increased gap */
+    align-items: center;
 }
-.title-payment {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: right;
+/* .dark .payment-detail already covered by .dark .bike-booking-inner-cont color */
+
+.title-payment { /* Labels like "Payer's Name" */
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    color: #454545; /* Slightly softer black */
 }
-.label-payment {
-    font-size: 20px;
+.dark .title-payment {
+    color: #b0bec5; /* Lighter grey for labels in dark mode */
 }
-.dark .bike-booking-outer-cont {
-    color: white;
-    background-color: black;
+
+.label-paymenet { /* Values like actual name/email */
+    font-size: 1rem;
+    color: #212121; /* Darker for values */
+    font-weight: 400;
 }
+.dark .label-paymenet {
+    color: #eceff1; /* Off-white for values in dark mode */
+}
+
 .qr-image-cont {
+    padding: 20px;
+}
+.qr-image-cont img {
+    border-radius: 8px;
+    max-width: 200px;
+    margin: 0 auto; /* Centered */
+    display: block;
+    background-color: white; /* Ensure QR code background is white for scannability */
+    padding: 10px; /* Padding around QR if it's transparent */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.dark .qr-image-cont img {
+    /* QR code itself should remain black on white. The padding and bg ensure this. */
+    /* No specific dark mode needed for the image content if handled as above. */
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.button-cont-payment {
+    display: flex;
+    gap: 20px; /* Increased gap */
+    padding: 30px 25px; /* More padding */
+    justify-content: center;
+    align-items: center; /* Align items if they have different heights due to icons */
+}
+
+/* Base styles for payment page buttons */
+.cancel-button,
+.done-payment-button {
+    padding: 12px 25px; /* Generous padding */
+    font-size: 1rem;
+    font-weight: 500; /* Medium weight */
+    border-radius: 8px; /* Softer radius */
+    border: none; /* Remove default border */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center;
+    min-width: 150px; /* Minimum width */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.cancel-button:hover,
+.done-payment-button:hover {
+    transform: translateY(-1px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+}
+
+.cancel-button:active,
+.done-payment-button:active {
+    transform: translateY(0px); /* Press down effect */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Specific styles for Cancel button */
+.cancel-button {
+    background-color: #f8f9fa; /* Light grey, almost white */
+    color: #dc3545; /* Red text for cancel */
+    border: 1px solid #dc3545; /* Red border */
+}
+.cancel-button:hover {
+    background-color: #ffebee; /* Very light red background on hover */
+    border-color: #c82333;
+}
+.dark .cancel-button {
+    background-color: #4a4a4a; /* Dark grey background */
+    color: #ff8a80; /* Lighter red text */
+    border: 1px solid #ff8a80; /* Lighter red border */
+}
+.dark .cancel-button:hover {
+    background-color: #5a5a5a;
+    border-color: #ff5252;
+}
+
+/* Specific styles for Done Payment button */
+.done-payment-button {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: 1px solid #28a745;
+}
+.done-payment-button:hover {
+    background-color: #218838; /* Darker green */
+    border-color: #1e7e34;
+}
+.dark .done-payment-button {
+    background-color: #2e7d32; /* Darker green for dark mode */
+    color: #e8f5e9; /* Very light green text */
+    border: 1px solid #2e7d32;
+}
+.dark .done-payment-button:hover {
+    background-color: #1b5e20; /* Even darker green */
+    border-color: #10431b;
+}
+
+/* Styles for processing state (Part 2) */
+.done-payment-button--processing {
+    position: relative;
+    color: transparent !important; /* Hide text */
+    pointer-events: none; /* Disable clicks while processing */
+}
+
+.done-payment-button--processing::after {
+    content: "";
+    display: block;
+    width: 20px; /* Spinner size */
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-top-color: #ffffff;
+    animation: payment-spinner 0.8s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px; /* Half of height */
+    margin-left: -10px; /* Half of width */
+}
+
+.dark .done-payment-button--processing::after {
+    border-color: rgba(200, 200, 200, 0.5);
+    border-top-color: #e8f5e9;
+}
+
+@keyframes payment-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* === MODERN UI STYLES FOR PAYMENT PAGE (BookingRide.jsx) === */
+
+.payment-page-animation {
+    animation: fadeInPaymentPage 0.5s ease-out forwards;
+}
+
+.payment-card-animation {
+    animation: slideInUpPaymentCard 0.6s ease-out 0.1s forwards; /* Added delay */
+    opacity: 0; /* Start hidden for animation */
+}
+
+@keyframes fadeInPaymentPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUpPaymentCard {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Override for .bike-booking-outer-cont if needed for payment page context */
+.bike-booking-outer-cont.payment-page-animation {
+    /* background-color: #eef2f5; */ /* Example: slightly different bg */
+}
+.dark .bike-booking-outer-cont.payment-page-animation {
+    /* background-color: #1c1c1e; */
+}
+
+/* Override for .bike-booking-inner-cont for the payment card */
+.bike-booking-inner-cont.payment-card-animation {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    max-width: 850px; /* Max width for the payment card */
+    margin: auto;
+    overflow: hidden;
+}
+.dark .bike-booking-inner-cont.payment-card-animation {
+    background-color: #2a2a2e;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    border: 1px solid #38383b;
+}
+
+.payment-header-section {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 35px 30px; /* Increased padding */
+    text-align: center;
+    /* border-top-left-radius: 16px; Should be handled by parent's overflow:hidden */
+    /* border-top-right-radius: 16px; */
+}
+.dark .payment-header-section {
+    background: linear-gradient(135deg, #0088cc 0%, #005f99 100%);
+}
+
+/* Ensure .payment-heading inside .payment-header-section is styled correctly */
+.payment-header-section .payment-heading {
+    font-size: 2.3rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    background-color: transparent; /* Important override */
+    color: white; /* Ensure text color */
+}
+
+.timer-container {
+    margin-top: 12px;
+}
+.timer-container .timer-label { /* "Time Left" text */
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin: 0 0 5px 0;
+    color: white;
+}
+.timer-container .time-header { /* Actual timer numbers */
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+    color: white;
+}
+
+.payment-details-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile first: single column */
+    gap: 25px 35px; /* Row gap, Column gap */
+    padding: 35px 40px; /* Increased padding */
+}
+
+@media screen and (min-width: 768px) {
+    .payment-details-grid {
+        grid-template-columns: 1.3fr 0.7fr; /* Info left, QR right for wider screens */
+    }
+}
+
+.payment-info-section {
+    /* Styles for the left column (booking summary) */
+}
+
+.qr-payment-section {
+    /* Styles for the right column (QR code) */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center QR content */
+}
+
+.section-title-payment { /* For "Booking Summary", "Scan to Pay" */
+    font-size: 1.4rem; /* Slightly larger */
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 25px; /* More space below title */
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e9ecef;
+}
+.dark .section-title-payment {
+    color: #f1f3f5;
+    border-bottom-color: #495057;
+}
+
+.payment-detail-item {
+    display: flex;
+    align-items: center; /* Vertically align icon and text */
+    margin-bottom: 18px; /* Increased space between items */
+    font-size: 1rem; /* Base font size for items */
+    line-height: 1.6; /* Improved line height */
+}
+
+.detail-icon {
+    margin-right: 15px; /* More space next to icon */
+    color: #007bff; 
+    flex-shrink: 0; 
+    width: 20px; /* Explicit width for alignment */
+    height: 20px; /* Explicit height */
+}
+.dark .detail-icon {
+    color: #00aaff;
+}
+
+.payment-detail-item .title-payment { 
+    font-weight: 500;
+    color: #495057; /* Dark grey for labels */
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+.dark .payment-detail-item .title-payment {
+    color: #adb5bd; /* Lighter grey for dark mode labels */
+}
+
+.payment-detail-item .label-paymenet { 
+    color: #212529; /* Main text color for values */
+    word-break: break-all; 
+    font-weight: 400; /* Normal weight for values */
+}
+.dark .payment-detail-item .label-paymenet {
+    color: #e9ecef; /* Light text for dark mode values */
+}
+
+.total-amount-item .title-payment,
+.total-amount-item .label-paymenet {
+    font-weight: 600; /* Bolder for total amount */
+    font-size: 1.15rem; 
+    color: #007bff; /* Primary color for emphasis */
+}
+.dark .total-amount-item .title-payment,
+.dark .total-amount-item .label-paymenet {
+    color: #00aaff; /* Brighter primary for dark mode */
+}
+.total-amount-item .detail-icon { /* Specific color for total amount icon */
+    color: #007bff;
+}
+.dark .total-amount-item .detail-icon {
+    color: #00aaff;
+}
+
+
+.qr-payment-section {
+    padding-top: 10px; /* Align top with booking summary title if needed */
+}
+
+.qr-image-wrapper {
+    position: relative; 
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px; /* Padding around QR */
+    background-color: #fff; 
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+    margin-bottom: 20px; /* Space below QR */
+    max-width: 240px; /* Max width of the QR + padding */
+    margin-left: auto;
+    margin-right: auto;
 }
-.qr-image-cont img {
-    border-radius: 7px;
+.dark .qr-image-wrapper {
+    background-color: #f8f9fa; /* Keep QR on light background for scannability */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
+
+.qr-code-image { 
+    max-width: 100%; 
+    display: block;
+    border-radius: 6px; 
+}
+
+.qr-scan-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 10px); /* Slightly larger than wrapper */
+    height: calc(100% + 10px);
+    transform: translate(-50%, -50%) scale(0.95);
+    border-radius: 16px; /* Larger radius for pulse */
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.6);
+    animation: qrPulse 2.2s infinite cubic-bezier(0.66, 0, 0, 1);
+    z-index: -1; 
+    opacity: 0.7;
+}
+.dark .qr-scan-pulse {
+    box-shadow: 0 0 0 0 rgba(0, 170, 255, 0.5);
+}
+
+@keyframes qrPulse { /* Ensure this is defined once, or use a different name if needed */
+    0% {
+        transform: translate(-50%, -50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.6);
+        opacity: 0.7;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 0 25px rgba(0, 123, 255, 0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+        opacity: 0;
+    }
+}
+
+
+.qr-instructions {
+    text-align: center;
+    font-size: 0.9rem; /* Slightly larger */
+    color: #555;
+    line-height: 1.5;
+}
+.dark .qr-instructions {
+    color: #adb5bd;
+}
+
+
 .button-cont-payment {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 10px;
-    padding: 30px;
+    display: flex;
+    gap: 20px; /* Maintained gap */
+    padding: 25px 40px 35px; /* Adjusted padding: top L/R bottom */
+    justify-content: space-between; 
+    border-top: 1px solid #e9ecef; /* Separator line */
+    margin-top: 20px; /* Space above buttons */
 }
-.cancel-button {
-    font-size: 17px;
-    font-weight: bold;
-    padding: 5px;
-    border: none;
-    border-radius: 10px;
+.dark .button-cont-payment {
+    border-top-color: #3a3f44;
 }
+
+.cancel-button,
 .done-payment-button {
-    background-color: #b1b11b;
-    font-weight: bold;
-    font-size: 17px;
-    padding: 5px;
-    border: none;
-    border-radius: 10px;
+    flex-basis: calc(50% - 10px); /* Distribute space, accounting for gap */
+    max-width: 220px; /* Max width for each button */
+    padding: 14px 22px; /* Slightly more padding */
+    font-size: 1.05rem; /* Slightly larger font */
+    font-weight: 500; 
+    border-radius: 8px; 
+    border: 1px solid transparent; 
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    text-align: center;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 50px; 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+}
+.cancel-button:hover, .done-payment-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+}
+.cancel-button:active, .done-payment-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+
+.cancel-button {
+    background-color: #f8f9fa; 
+    color: #dc3545; 
+    border-color: #dc3545;
+}
+.cancel-button:hover {
+    background-color: #ffe3e6; /* Lighter red on hover */
+    border-color: #c82333;
+    color: #c82333;
+}
+.dark .cancel-button {
+    background-color: #495057; 
+    color: #ffced1; 
+    border-color: #ff8a80;
+}
+.dark .cancel-button:hover {
+    background-color: #5a6268;
+    border-color: #ff5252;
+    color: #ffeff0;
+}
+
+.done-payment-button {
+    background-color: #007bff; 
+    color: white;
+    border-color: #007bff;
 }
 .done-payment-button:hover {
-    background-color: #d8d86c;
+    background-color: #0056b3; 
+    border-color: #0056b3;
+}
+.dark .done-payment-button {
+    background-color: #0088cc; 
+    color: white;
+    border-color: #0088cc;
+}
+.dark .done-payment-button:hover {
+    background-color: #006699;
+    border-color: #006699;
+}
+
+.done-payment-button--processing {
+    position: relative;
+    color: transparent !important; 
+    pointer-events: none; 
+}
+.done-payment-button--processing::after { /* Spinner */
+    content: "";
+    display: block;
+    width: 22px; /* Slightly larger spinner */
+    height: 22px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.4); /* Lighter border for spinner */
+    border-top-color: #ffffff;
+    animation: payment-spinner 0.7s linear infinite; /* Faster spin */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -11px; 
+    margin-left: -11px; 
+}
+.dark .done-payment-button--processing::after {
+    border-color: rgba(220, 220, 220, 0.4);
+    border-top-color: #f0f0f0;
+}
+
+.done-payment-button--success {
+    background-color: #28a745 !important; 
+    border-color: #28a745 !important;
+    color: white !important;
+}
+.dark .done-payment-button--success {
+    background-color: #388e3c !important;
+    border-color: #388e3c !important;
+}
+.done-payment-button--success svg { 
+    color: white !important;
+    animation: successIconAnimation 0.3s ease-out;
+}
+
+.done-payment-button--error {
+    background-color: #dc3545 !important; 
+    border-color: #dc3545 !important;
+    color: white !important;
+    animation: errorButtonShake 0.5s ease-in-out;
+}
+.dark .done-payment-button--error {
+    background-color: #c62828 !important;
+    border-color: #c62828 !important;
+}
+.done-payment-button--error svg { 
+    color: white !important;
+}
+
+@keyframes successIconAnimation {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes errorButtonShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
 }
