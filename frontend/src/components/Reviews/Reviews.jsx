@@ -1,7 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Reviews.css';
 
-// Sample review data - in a real app, this would likely come from a backend or state management
+// Sample review data
 const reviewData = [
   {
     id: 1,
@@ -23,17 +24,40 @@ const reviewData = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    }
+  }
+};
+
+const reviewVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
 const Reviews = ({ theme }) => {
   return (
-    <div className={`rated ${theme || ''}`}>
+    <motion.div
+      className={`rated ${theme || ''}`}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <h2 className="title">What Our Clients Say About Us</h2>
       <p className="subtitle">
         Hear from our satisfied riders who love the convenience and sustainability of InstaGO.
       </p>
       <div className="reviews">
         {reviewData.map((review) => (
-          <div className="review" key={review.id}>
-            {/* Optional: Add a rating display if you have one, e.g., stars */}
+          <motion.div
+            className="review"
+            key={review.id}
+            variants={reviewVariants}
+          >
             {review.rating && (
               <div className="rating">
                 {'★'.repeat(review.rating)}
@@ -42,10 +66,10 @@ const Reviews = ({ theme }) => {
             )}
             <p className="review-text">{review.text}</p>
             <p className="client-name">- {review.name}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

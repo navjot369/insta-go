@@ -1,6 +1,7 @@
 import React from 'react';
 import './HowItWorks.css';
 import { FaUserPlus, FaSearchLocation, FaMotorcycle, FaRegCheckCircle } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const HowItWorks = ({ theme }) => {
   const steps = [
@@ -25,19 +26,62 @@ const HowItWorks = ({ theme }) => {
       description: 'Park in a designated zone and end your trip via the app.',
     },
   ];
+
   return (
-    <div className={`how-it-works${theme === 'dark' ? ' dark' : ''}`}> 
-      <h2>How InstaGO Works</h2>
-      <div className="steps-container">
+    <motion.div 
+      className={`how-it-works${theme === 'dark' ? ' dark' : ''}`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    > 
+      {/* Section Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        How InstaGO Works
+      </motion.h2>
+
+      {/* Steps */}
+      <motion.div 
+        className="steps-container"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: { staggerChildren: 0.3 }
+          }
+        }}
+      >
         {steps.map((step, index) => (
-          <div key={index} className="step-card">
-            <div className="step-icon">{step.icon}</div>
+          <motion.div 
+            key={index} 
+            className="step-card"
+            variants={{
+              hidden: { opacity: 0, scale: 0.8, y: 30 },
+              show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <motion.div 
+              className="step-icon"
+              whileHover={{ scale: 1.2, rotate: 10 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {step.icon}
+            </motion.div>
             <h3>{step.title}</h3>
             <p>{step.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
